@@ -4,21 +4,21 @@ using UnityEngine;
 
 public class EnemyBehavior : MonoBehaviour
 {
-    public GameObject destroyFx;
+    public GameObject spawnItem = null;
+    public GameObject destroyFx = null;
+    public Animator animator = null;
 
     private Transform target = null;
     private float enemyMoveSpeed = 1.5f;
-    private Animator animator;
-    // Start is called before the first frame update
+    
     void Start()
     {
-        animator = GetComponent<Animator>();
         InvokeRepeating("UpdateTarget", 0.0f, 0.25f);
     }
 
     private void UpdateTarget()
     {
-        Collider[] cols = Physics.OverlapSphere(transform.position, 3.0f);
+        Collider[] cols = Physics.OverlapSphere(transform.position, 6.0f);
         for (int i = 0; i < cols.Length; i++)
         {
             if (cols[i].tag == "Player")
@@ -33,7 +33,6 @@ public class EnemyBehavior : MonoBehaviour
         target = null;
     }
 
-    // Update is called once per frame
     void Update()
     {
         if(target != null)
@@ -43,6 +42,12 @@ public class EnemyBehavior : MonoBehaviour
             Quaternion q = Quaternion.LookRotation(dir.normalized);
             float y = q.eulerAngles.y;
             transform.rotation = Quaternion.Euler(new Vector3(0, y, 0));
+
+            if (!animator.GetBool("isChasing")) animator.SetBool("isChasing", true);
+        }
+        else
+        {
+            if (animator.GetBool("isChasing")) animator.SetBool("isChasing", false);
         }
     }
 
@@ -50,9 +55,15 @@ public class EnemyBehavior : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            Debug.Log("EnemyDie");
+           // Debug.Log("EnemyDie");
             GameObject fx =Instantiate(destroyFx, this.transform.position, this.transform.rotation);
             Destroy(fx, 1.0f);
+
+            if (Random.Range(0, 2) == 1)
+            {
+                GameObject item = Instantiate(spawnItem,
+                  new Vector3(this.transform.position.x, this.transform.position.y + 1.0f, this.transform.position.z), this.transform.rotation);
+            }
             Destroy(this.gameObject,0.2f);
         }
     }
