@@ -473,7 +473,7 @@ ModelImporter:
     second: Rabbit_LowPoly
   - first:
       74: 7400000
-    second: Scene
+    second: Boss_dance
   - first:
       95: 9500000
     second: //RootNode
@@ -498,12 +498,16 @@ ModelImporter:
     rigImportErrors: 
     rigImportWarnings: 
     animationImportErrors: 
-    animationImportWarnings: 
+    animationImportWarnings: "\nClip 'Scene' has import animation warnings that might
+      lower retargeting quality:\nNote: Activate translation DOF on avatar to improve
+      retargeting quality.\n\t'Spine1[Bone][IK:Spine:2]' is inbetween humanoid transforms
+      and has rotation animation that will be discarded.\n\t'Neck[Bone][IK:Neck:1]'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n"
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
     importConstraints: 0
-    animationCompression: 1
+    animationCompression: 3
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
@@ -512,7 +516,7 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Scene
+      name: Boss_dance
       takeName: Scene
       internalID: 0
       firstFrame: 43
@@ -585,8 +589,556 @@ ModelImporter:
   importAnimation: 1
   humanDescription:
     serializedVersion: 3
-    human: []
-    skeleton: []
+    human:
+    - boneName: Pelvis[Bone][CpyLoc:BodyRot]
+      humanName: Hips
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: TighLeft[Bone]
+      humanName: LeftUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: TighRight[Bone]
+      humanName: RightUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: ShinLeft[Bone][IK:LegLeft:2]
+      humanName: LeftLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: ShinRight[Bone][IK:LegRight:2]
+      humanName: RightLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: FootLeft[Bone][IK:FootLeft:1]
+      humanName: LeftFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: FootRight[Bone][IK:FootRight:1]
+      humanName: RightFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Spine0[Bone]
+      humanName: Spine
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Head0[Bone][IK:Head:1]
+      humanName: Neck
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Head1[Bone]
+      humanName: Head
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: ClavicleLeft[Bone]
+      humanName: LeftShoulder
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: ClavicleRight[Bone]
+      humanName: RightShoulder
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: ShoulderLeft[Bone]
+      humanName: LeftUpperArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: ShoulderRight[Bone]
+      humanName: RightUpperArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: ForearmLeft[Bone][IK:ArmLeft:2]
+      humanName: LeftLowerArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: ForearmRight[Bone][IK:ArmRight:2]
+      humanName: RightLowerArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: FingerLeft01[Bone]
+      humanName: LeftHand
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: FingerRight11[Bone]
+      humanName: RightHand
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: ToesLeft[Bone][IK:ToesLeft:1]
+      humanName: LeftToes
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: ToesRight[Bone][IK:ToesRight:1]
+      humanName: RightToes
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: EarRight1[Bone][Kine]
+      humanName: RightEye
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    skeleton:
+    - name: Rabbit_LowPoly_RigUnity_Final(Clone)
+      parentName: 
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Dummies
+      parentName: Rabbit_LowPoly_RigUnity_Final(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -4.32978e-17, y: 0.7071067, z: 0.7071068, w: -4.3297806e-17}
+      scale: {x: 1, y: 1, z: 1}
+    - name: ToesLeft[LerpAnim]
+      parentName: Dummies
+      position: {x: -0.93431544, y: -0.9588528, z: -1.7942104}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 0.100000024, y: 0.100000024, z: 0.100000024}
+    - name: ToesRight[LerpAnim]
+      parentName: Dummies
+      position: {x: 0.933473, y: -0.9588528, z: -1.7942104}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 0.100000024, y: 0.100000024, z: 0.100000024}
+    - name: FootRight[LerpAnim]
+      parentName: Dummies
+      position: {x: 0.763674, y: -0.30962923, z: -1.8041986}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 0.100000024, y: 0.100000024, z: 0.100000024}
+    - name: FootLeft[LerpAnim]
+      parentName: Dummies
+      position: {x: -0.7645166, y: -0.30962923, z: -1.8341632}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 0.100000024, y: 0.100000024, z: 0.100000024}
+    - name: Neck[LerpAnim]
+      parentName: Dummies
+      position: {x: 0.0007476818, y: -0.17978537, z: 3.332599}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 0.100000024, y: 0.100000024, z: 0.100000024}
+    - name: Spine[LerpAnim]
+      parentName: Dummies
+      position: {x: 0.0045728683, y: 0, z: 3.0001125}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 0.100000024, y: 0.100000024, z: 0.100000024}
+    - name: LegRight[LerpAnim]
+      parentName: Dummies
+      position: {x: 0.41393232, y: 0.24970175, z: -1.3890951}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 0.100000024, y: 0.100000024, z: 0.100000024}
+    - name: LegLeft[LerpAnim]
+      parentName: Dummies
+      position: {x: -0.44408894, y: 0, z: -1.3672796}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 0.100000024, y: 0.100000024, z: 0.100000024}
+    - name: ArmRight[LerpAnim]
+      parentName: Dummies
+      position: {x: 1.7014489, y: -0.11985657, z: 0.36370718}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 0.100000024, y: 0.100000024, z: 0.100000024}
+    - name: ArmLeft[LerpAnim]
+      parentName: Dummies
+      position: {x: -1.7481492, y: -0.11985658, z: 0.34125042}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 0.100000024, y: 0.100000024, z: 0.100000024}
+    - name: Head[LerpAnim]
+      parentName: Dummies
+      position: {x: -0.014280796, y: -1.7479098, z: 1.9978487}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 0.100000024, y: 0.100000024, z: 0.100000024}
+    - name: Body[LerpAnim]
+      parentName: Dummies
+      position: {x: -0, y: 0.000000008912844, z: -0.5}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: BodyRot
+      parentName: Body[LerpAnim]
+      position: {x: -0.009144902, y: -0.24325995, z: 0.48845637}
+      rotation: {x: 0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 1, y: 1, z: 1}
+    - name: EarRight[LerpAnim]
+      parentName: Dummies
+      position: {x: 0.65543914, y: -0.22948699, z: 4.639716}
+      rotation: {x: 0.0000000027939677, y: 1.1641532e-10, z: 1.5143087e-10, w: 1}
+      scale: {x: 0.100000024, y: 0.100000024, z: 0.100000046}
+    - name: EarLeft[LerpAnim]
+      parentName: Dummies
+      position: {x: -0.64848375, y: -0.21973774, z: 4.611085}
+      rotation: {x: 0.0000000027939677, y: 1.1641532e-10, z: 1.5143087e-10, w: 1}
+      scale: {x: 0.100000024, y: 0.100000024, z: 0.100000046}
+    - name: Armature
+      parentName: Rabbit_LowPoly_RigUnity_Final(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -4.32978e-17, y: 0.7071067, z: 0.7071068, w: -4.3297806e-17}
+      scale: {x: 1, y: 1, z: 1}
+    - name: DummyHeadTransform
+      parentName: Armature
+      position: {x: 0.09367221, y: -0.9851402, z: 1.9959406}
+      rotation: {x: 0.9999488, y: -0.00487466, z: 0.00038362812, w: 0.0088643255}
+      scale: {x: 0.9999998, y: 0.9999997, z: 0.9999998}
+    - name: Pelvis[Bone][CpyLoc:BodyRot]
+      parentName: Armature
+      position: {x: -2.7002045e-16, y: -0.00000035762787, z: 1.7048842}
+      rotation: {x: 0.0000000057519687, y: -0.7071067, z: -0.7071068, w: 0.000000005751968}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Spine0[Bone]
+      parentName: Pelvis[Bone][CpyLoc:BodyRot]
+      position: {x: -0, y: 0.5, z: 0}
+      rotation: {x: 0.10534394, y: -0.00000007259432, z: -0.000000007690161, w: 0.99443585}
+      scale: {x: 1.0000002, y: 1.0000001, z: 1.0000002}
+    - name: ClavicleRight[Bone]
+      parentName: Spine0[Bone]
+      position: {x: 0.000000018975697, y: 0.96415, z: 0.000000006872142}
+      rotation: {x: -0.5336889, y: -0.58826506, z: -0.30753228, w: 0.5239698}
+      scale: {x: 1.0000002, y: 1.0000004, z: 1.0000004}
+    - name: ShoulderRight[Bone]
+      parentName: ClavicleRight[Bone]
+      position: {x: -0.000000040978193, y: 0.42720908, z: -0.00000010058284}
+      rotation: {x: -0.17546229, y: -0.47569168, z: 0.033958793, w: 0.86126494}
+      scale: {x: 1.0000006, y: 1.0000001, z: 1}
+    - name: ForearmRight[Bone][IK:ArmRight:2]
+      parentName: ShoulderRight[Bone]
+      position: {x: -0.000000019557774, y: 1.0901748, z: -0.000000029802322}
+      rotation: {x: 0.05034426, y: -0.5559726, z: 0.062243134, w: -0.8273365}
+      scale: {x: 1, y: 1, z: 0.99999946}
+    - name: ThumbRight0[Bone]
+      parentName: ForearmRight[Bone][IK:ArmRight:2]
+      position: {x: -0.00000010617077, y: 0.5961441, z: -0.000000074505806}
+      rotation: {x: 0.45303103, y: 0.8344492, z: 0.12958452, w: -0.28577128}
+      scale: {x: 1.0000005, y: 1.0000002, z: 1.0000004}
+    - name: ThumbRight1[Bone]
+      parentName: ThumbRight0[Bone]
+      position: {x: -0.00000014901161, y: 0.15247634, z: 0.000000037252903}
+      rotation: {x: 0.18916094, y: 0.9777034, z: 0.08480815, w: 0.03349398}
+      scale: {x: 1.0000001, y: 1.0000005, z: 0.99999994}
+    - name: ThumbRight2[Bone]
+      parentName: ThumbRight1[Bone]
+      position: {x: 0.0000002719462, y: 0.10876268, z: -0.000000074505806}
+      rotation: {x: 0.2869103, y: 0.24612351, z: -0.21821855, w: -0.89971465}
+      scale: {x: 1.0000002, y: 1.0000006, z: 1.0000002}
+    - name: FingerRight00[Bone]
+      parentName: ForearmRight[Bone][IK:ArmRight:2]
+      position: {x: -0.00000010617077, y: 0.5961441, z: -0.000000074505806}
+      rotation: {x: -0.19286232, y: -0.15469204, z: 0.0471865, w: -0.96780574}
+      scale: {x: 1, y: 1, z: 1.0000001}
+    - name: FingerRight01[Bone]
+      parentName: FingerRight00[Bone]
+      position: {x: -0.000000007450581, y: 0.181625, z: 0.000000074505806}
+      rotation: {x: 0.22135185, y: 0.021952644, z: -0.013983797, w: -0.97484666}
+      scale: {x: 1, y: 1.0000004, z: 1}
+    - name: FingerRight02[Bone]
+      parentName: FingerRight01[Bone]
+      position: {x: -0.00000017881393, y: 0.12536928, z: 0}
+      rotation: {x: -0.07360363, y: 0.05999722, z: -0.06255685, w: 0.9935137}
+      scale: {x: 1.0000002, y: 0.9999997, z: 0.9999997}
+    - name: FingerRight10[Bone]
+      parentName: ForearmRight[Bone][IK:ArmRight:2]
+      position: {x: -0.00000010617077, y: 0.5961441, z: -0.000000074505806}
+      rotation: {x: -0.087125584, y: -0.0037055314, z: -0.2157296, w: -0.9725514}
+      scale: {x: 0.9999998, y: 1, z: 1}
+    - name: FingerRight11[Bone]
+      parentName: FingerRight10[Bone]
+      position: {x: 0.000000074505806, y: 0.1854863, z: 0.000000044703484}
+      rotation: {x: 0.11654726, y: -0.1500898, z: 0.20254812, w: -0.96065813}
+      scale: {x: 1, y: 1.0000005, z: 0.99999994}
+    - name: FingerRight12[Bone]
+      parentName: FingerRight11[Bone]
+      position: {x: 0.00000009685755, y: 0.13525638, z: 0.000000044703484}
+      rotation: {x: -0.10124864, y: 0.021999357, z: -0.010419092, w: 0.99456334}
+      scale: {x: 0.99999994, y: 1.0000006, z: 1.0000002}
+    - name: FingerRight20[Bone]
+      parentName: ForearmRight[Bone][IK:ArmRight:2]
+      position: {x: -0.00000010617077, y: 0.5961441, z: -0.000000074505806}
+      rotation: {x: -0.023745777, y: 0.15583293, z: -0.43443483, w: -0.8868025}
+      scale: {x: 1, y: 1.0000001, z: 1.0000001}
+    - name: FingerRight21[Bone]
+      parentName: FingerRight20[Bone]
+      position: {x: -0.00000009685755, y: 0.19027466, z: -0.000000059604645}
+      rotation: {x: 0.12887765, y: -0.25238106, z: 0.2660372, w: -0.92136776}
+      scale: {x: 1.0000002, y: 1.0000001, z: 0.99999994}
+    - name: FingerRight22[Bone]
+      parentName: FingerRight21[Bone]
+      position: {x: 0.00000013411045, y: 0.15154657, z: 0.00000020861626}
+      rotation: {x: -0.062625095, y: 0.11041443, z: -0.084545255, w: 0.98830104}
+      scale: {x: 1, y: 1.000001, z: 1.0000007}
+    - name: ClavicleLeft[Bone]
+      parentName: Spine0[Bone]
+      position: {x: 0.000000018975697, y: 0.96415, z: 0.000000006872142}
+      rotation: {x: 0.53368896, y: -0.5882652, z: -0.30753246, w: -0.5239694}
+      scale: {x: 1.0000001, y: 1, z: 1}
+    - name: ShoulderLeft[Bone]
+      parentName: ClavicleLeft[Bone]
+      position: {x: 0.000000011175871, y: 0.4272091, z: 0.00000003306195}
+      rotation: {x: 0.175462, y: -0.47569138, z: 0.033958826, w: -0.8612651}
+      scale: {x: 1.0000002, y: 0.99999994, z: 0.99999976}
+    - name: ForearmLeft[Bone][IK:ArmLeft:2]
+      parentName: ShoulderLeft[Bone]
+      position: {x: -0.00000017881393, y: 1.0901748, z: 0.000000014901161}
+      rotation: {x: -0.02608888, y: -0.54489833, z: -0.0049884873, w: 0.83808136}
+      scale: {x: 1, y: 1.0000001, z: 0.99999994}
+    - name: ThumbLeft0[Bone]
+      parentName: ForearmLeft[Bone][IK:ArmLeft:2]
+      position: {x: -0.00000008568168, y: 0.59614414, z: 0.000000074505806}
+      rotation: {x: -0.45303094, y: 0.8344492, z: 0.12958477, w: 0.2857713}
+      scale: {x: 1.0000004, y: 1.0000005, z: 1.0000004}
+    - name: ThumbLeft1[Bone]
+      parentName: ThumbLeft0[Bone]
+      position: {x: -0.000000063329935, y: 0.15247633, z: 0.000000020489097}
+      rotation: {x: -0.18916087, y: 0.9777034, z: 0.08480814, w: -0.03349385}
+      scale: {x: 1.0000001, y: 1.0000006, z: 1.0000004}
+    - name: ThumbLeft2[Bone]
+      parentName: ThumbLeft1[Bone]
+      position: {x: 0.00000016391277, y: 0.10876277, z: -0.000000029802322}
+      rotation: {x: 0.2869104, y: -0.2461235, z: 0.21821849, w: -0.8997146}
+      scale: {x: 0.99999994, y: 0.9999998, z: 0.99999994}
+    - name: FingerLeft00[Bone]
+      parentName: ForearmLeft[Bone][IK:ArmLeft:2]
+      position: {x: -0.00000008568168, y: 0.59614414, z: 0.000000074505806}
+      rotation: {x: -0.1928627, y: 0.15469196, z: -0.047186434, w: -0.96780574}
+      scale: {x: 1, y: 1, z: 1.0000004}
+    - name: FingerLeft01[Bone]
+      parentName: FingerLeft00[Bone]
+      position: {x: -0.00000020861626, y: 0.18162479, z: -0.000000044703484}
+      rotation: {x: 0.22135197, y: -0.021952534, z: 0.013983713, w: -0.97484654}
+      scale: {x: 1.0000001, y: 1.0000005, z: 1}
+    - name: FingerLeft02[Bone]
+      parentName: FingerLeft01[Bone]
+      position: {x: -0.00000008940697, y: 0.12536913, z: -0.000000029802322}
+      rotation: {x: -0.073603675, y: -0.05999708, z: 0.062556826, w: 0.99351376}
+      scale: {x: 1.0000001, y: 1.0000005, z: 1.0000005}
+    - name: FingerLeft10[Bone]
+      parentName: ForearmLeft[Bone][IK:ArmLeft:2]
+      position: {x: -0.00000008568168, y: 0.59614414, z: 0.000000074505806}
+      rotation: {x: 0.08712528, y: -0.0037052627, z: -0.21572965, w: 0.97255135}
+      scale: {x: 1.0000001, y: 1.0000002, z: 1.0000002}
+    - name: FingerLeft11[Bone]
+      parentName: FingerLeft10[Bone]
+      position: {x: -0.000000044703484, y: 0.18548626, z: -0.000000029802322}
+      rotation: {x: -0.16438748, y: -0.15612201, z: 0.21291246, w: 0.9504057}
+      scale: {x: 1.0000005, y: 1.0000002, z: 1}
+    - name: FingerLeft12[Bone]
+      parentName: FingerLeft11[Bone]
+      position: {x: 0.000000044703484, y: 0.13525656, z: 0.000000044703484}
+      rotation: {x: -0.1012488, y: -0.021999462, z: 0.010419129, w: 0.99456334}
+      scale: {x: 0.9999998, y: 1, z: 0.99999994}
+    - name: FingerLeft30[Bone]
+      parentName: ForearmLeft[Bone][IK:ArmLeft:2]
+      position: {x: -0.00000008568168, y: 0.59614414, z: 0.000000074505806}
+      rotation: {x: 0.023746043, y: 0.15583314, z: -0.43443477, w: 0.8868025}
+      scale: {x: 1.0000002, y: 0.9999999, z: 1}
+    - name: FingerLeft31[Bone]
+      parentName: FingerLeft30[Bone]
+      position: {x: -0.000000037252903, y: 0.1902751, z: 0.00000011920929}
+      rotation: {x: -0.12887724, y: -0.25238097, z: 0.26603732, w: 0.9213678}
+      scale: {x: 1.0000004, y: 1.0000006, z: 1.0000001}
+    - name: FingerLeft32[Bone]
+      parentName: FingerLeft31[Bone]
+      position: {x: 0.00000014901161, y: 0.15154664, z: 0.000000029802322}
+      rotation: {x: -0.06262539, y: -0.11041446, z: 0.08454538, w: 0.98830104}
+      scale: {x: 1, y: 1.0000001, z: 1.0000004}
+    - name: Spine1[Bone][IK:Spine:2]
+      parentName: Spine0[Bone]
+      position: {x: 0.000000019324943, y: 0.96415, z: -0.0000000154796}
+      rotation: {x: -0.10534394, y: 0.00000007259433, z: 0.000000007690163, w: 0.99443585}
+      scale: {x: 1, y: 0.99999976, z: 1}
+    - name: Neck[Bone][IK:Neck:1]
+      parentName: Spine1[Bone][IK:Spine:2]
+      position: {x: -0.000000009778887, y: 0.5598863, z: -0.000000020801963}
+      rotation: {x: 0.021111496, y: -0.00000008427492, z: -0.0000000017795718, w: 0.99977714}
+      scale: {x: 1.0000004, y: 0.99999994, z: 1.0000005}
+    - name: Head0[Bone][IK:Head:1]
+      parentName: Neck[Bone][IK:Neck:1]
+      position: {x: -0.000000010593794, y: 0.4516111, z: -0.000000034197}
+      rotation: {x: 0.20132615, y: -0.0000036513266, z: -0.0000007834625, w: 0.97952425}
+      scale: {x: 1.000001, y: 1.0000002, z: 1.0000005}
+    - name: Head1[Bone]
+      parentName: Head0[Bone][IK:Head:1]
+      position: {x: 0.0000000027939677, y: 0.8590432, z: 0.00000012270175}
+      rotation: {x: -0.98922515, y: 0.0000005583978, z: 0.0000037720017, w: 0.14640218}
+      scale: {x: 1.0000005, y: 1, z: 0.99999887}
+    - name: EarLeft0[Bone]
+      parentName: Head1[Bone]
+      position: {x: -0.000000011175871, y: 0.8661966, z: -0.000000009080395}
+      rotation: {x: -0.2723283, y: -0.4369482, z: -0.5451076, w: -0.6616429}
+      scale: {x: 1.0000002, y: 1, z: 0.99999994}
+    - name: EarLeft1[Bone][Kine]
+      parentName: EarLeft0[Bone]
+      position: {x: -0, y: 0.6282052, z: 0}
+      rotation: {x: 0.10042603, y: -0.015647754, z: 0.20145956, w: 0.97420937}
+      scale: {x: 0.99999994, y: 1.0000005, z: 0.99999934}
+    - name: EarLeft2[Bone][Kine]
+      parentName: EarLeft1[Bone][Kine]
+      position: {x: -0, y: 0.668997, z: 0}
+      rotation: {x: 0.08263603, y: -0.0083057275, z: -0.25458062, w: 0.9634786}
+      scale: {x: 1, y: 1.0000011, z: 1.0000001}
+    - name: EarRight0[Bone]
+      parentName: Head1[Bone]
+      position: {x: -0.000000011175871, y: 0.8661966, z: -0.000000009080395}
+      rotation: {x: 0.27232838, y: -0.4369482, z: -0.54510754, w: 0.6616429}
+      scale: {x: 1.0000005, y: 1, z: 0.99999994}
+    - name: EarRight1[Bone][Kine]
+      parentName: EarRight0[Bone]
+      position: {x: -0, y: 0.62820554, z: 0}
+      rotation: {x: 0.10042605, y: 0.01564771, z: -0.20145956, w: 0.97420937}
+      scale: {x: 1.0000001, y: 1.000001, z: 0.9999996}
+    - name: EarRight2[Bone][Kine]
+      parentName: EarRight1[Bone][Kine]
+      position: {x: -0, y: 0.6689966, z: 0}
+      rotation: {x: 0.08263591, y: 0.008305724, z: 0.25458065, w: 0.9634787}
+      scale: {x: 1.0000002, y: 1.0000005, z: 1.0000002}
+    - name: PelvisLeft[Bone]
+      parentName: Pelvis[Bone][CpyLoc:BodyRot]
+      position: {x: -0, y: 0.5, z: 0}
+      rotation: {x: -0.6192131, y: 0.3414312, z: 0.67402005, w: 0.21376842}
+      scale: {x: 1, y: 1.0000001, z: 1.0000001}
+    - name: TighLeft[Bone]
+      parentName: PelvisLeft[Bone]
+      position: {x: 0.000000008381903, y: 0.64410317, z: -0.000000015069102}
+      rotation: {x: -0.33348978, y: 0.06366398, z: 0.019391505, w: 0.94040173}
+      scale: {x: 1.0000002, y: 1.0000006, z: 1.0000005}
+    - name: ShinLeft[Bone][IK:LegLeft:2]
+      parentName: TighLeft[Bone]
+      position: {x: 0.00000009313226, y: 0.62119555, z: -0.000000117346644}
+      rotation: {x: 0.31730422, y: 0.9386284, z: -0.101974815, w: 0.0888596}
+      scale: {x: 1.0000007, y: 1.0000004, z: 1.0000001}
+    - name: FootLeft[Bone][IK:FootLeft:1]
+      parentName: ShinLeft[Bone][IK:LegLeft:2]
+      position: {x: -0.000000074505806, y: 0.73068875, z: 0.00000010058284}
+      rotation: {x: -0.53205, y: -0.76960653, z: 0.34970674, w: -0.04831022}
+      scale: {x: 1.0000002, y: 0.99999994, z: 0.99999994}
+    - name: ToesLeft[Bone][IK:ToesLeft:1]
+      parentName: FootLeft[Bone][IK:FootLeft:1]
+      position: {x: -0.00000022351742, y: 0.7975942, z: 0.000000117346644}
+      rotation: {x: -0.2988671, y: 0.45885032, z: -0.14630958, w: -0.8238497}
+      scale: {x: 1.0000001, y: 1.0000005, z: 1.0000002}
+    - name: PelvisRight[Bone]
+      parentName: Pelvis[Bone][CpyLoc:BodyRot]
+      position: {x: -0, y: 0.5, z: 0}
+      rotation: {x: 0.6192131, y: 0.3414312, z: 0.67402005, w: -0.21376842}
+      scale: {x: 1, y: 1.0000001, z: 1.0000001}
+    - name: TighRight[Bone]
+      parentName: PelvisRight[Bone]
+      position: {x: 0.0000000018626451, y: 0.64410317, z: 0.000000029634382}
+      rotation: {x: -0.3334899, y: -0.06366398, z: -0.019391233, w: 0.94040173}
+      scale: {x: 1.0000002, y: 1.0000004, z: 1.0000006}
+    - name: ShinRight[Bone][IK:LegRight:2]
+      parentName: TighRight[Bone]
+      position: {x: 0.000000044703484, y: 0.62119544, z: -0.00000007636845}
+      rotation: {x: -0.3173042, y: 0.9386284, z: -0.10197455, w: -0.0888596}
+      scale: {x: 1.0000006, y: 1.0000005, z: 1.0000001}
+    - name: FootRight[Bone][IK:FootRight:1]
+      parentName: ShinRight[Bone][IK:LegRight:2]
+      position: {x: -0.00000018626451, y: 0.7306887, z: -0.000000044703484}
+      rotation: {x: 0.5320503, y: -0.76960635, z: 0.34970644, w: 0.048310496}
+      scale: {x: 1.0000005, y: 1.0000001, z: 1}
+    - name: ToesRight[Bone][IK:ToesRight:1]
+      parentName: FootRight[Bone][IK:FootRight:1]
+      position: {x: -0.00000013411045, y: 0.7975943, z: -0.000000037252903}
+      rotation: {x: -0.2988671, y: -0.45885032, z: 0.14630958, w: -0.8238497}
+      scale: {x: 1.0000001, y: 1.0000002, z: 1.0000002}
+    - name: Tail0[Bone]
+      parentName: Pelvis[Bone][CpyLoc:BodyRot]
+      position: {x: -0, y: 0.5, z: 0}
+      rotation: {x: -0.7670758, y: 0.000000004779969, z: -0.0000000057151603, w: 0.6415566}
+      scale: {x: 1.0000002, y: 1, z: 0.9999999}
+    - name: Tail1[Bone][Kine]
+      parentName: Tail0[Bone]
+      position: {x: -0.000000007604915, y: 0.4856365, z: -6.367237e-10}
+      rotation: {x: 0.3879492, y: 0.00000002060118, z: 0.000000014452233, w: 0.9216808}
+      scale: {x: 0.9999995, y: 0.9999999, z: 0.99999964}
+    - name: Rabbit_LowPoly
+      parentName: Rabbit_LowPoly_RigUnity_Final(Clone)
+      position: {x: -0, y: 0.49862224, z: 0.28643435}
+      rotation: {x: -6.123234e-17, y: 1, z: -0.00000008146034, w: 4.9880073e-24}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Lamp
+      parentName: Rabbit_LowPoly_RigUnity_Final(Clone)
+      position: {x: 5.0320683, y: 5.8345995, z: 1.005454}
+      rotation: {x: 0.1206492, y: 0.32019657, z: 0.9395637, w: -0.0117468685}
+      scale: {x: 1.0000001, y: 1, z: 1.0000001}
+    - name: Camera
+      parentName: Rabbit_LowPoly_RigUnity_Final(Clone)
+      position: {x: -4.5314016, y: 1.9725028, z: -12.972448}
+      rotation: {x: 0.009057711, y: -0.5762051, z: -0.023246912, w: 0.8169243}
+      scale: {x: 1, y: 0.9999999, z: 1}
     armTwist: 0.5
     foreArmTwist: 0.5
     upperLegTwist: 0.5
@@ -597,13 +1149,13 @@ ModelImporter:
     globalScale: 1
     rootMotionBoneName: 
     hasTranslationDoF: 0
-    hasExtraRoot: 0
+    hasExtraRoot: 1
     skeletonHasParents: 0
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   autoGenerateAvatarMappingIfUnspecified: 1
-  animationType: 1
+  animationType: 3
   humanoidOversampling: 1
-  avatarSetup: 0
+  avatarSetup: 1
   addHumanoidExtraRootOnlyWhenUsingAvatar: 0
   additionalBone: 1
   userData: 

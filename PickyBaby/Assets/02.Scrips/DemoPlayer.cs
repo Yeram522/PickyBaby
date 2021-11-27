@@ -21,45 +21,32 @@ public class DemoPlayer : MonoBehaviour
         }
 
         //이동 및 회전
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            float rnd = Random.Range(0.0f, 5.0f);//0.0f~5.0f사이의 난수
-            this.transform.position = new Vector3(0.0f, 0.5f, rnd);//자신(Capsule)의 위치를 변경
-        }
-
-        if (Input.GetKeyDown(KeyCode.B))
-        {
-            float rnd = Random.Range(0.0f, 360.0f);
-            this.transform.rotation = Quaternion.Euler(0.0f, rnd, 0.0f);
-        }
-
-
-        if (Input.GetKey(KeyCode.UpArrow))
+        if (Input.GetKey(KeyCode.W))
         {
             this.transform.Translate(Vector3.forward * 3.0f * Time.deltaTime);
         }
 
-        if (Input.GetKey(KeyCode.DownArrow))
+        if (Input.GetKey(KeyCode.S))
         {
             this.transform.Translate(Vector3.back * 3.0f * Time.deltaTime);
         }
 
-        if (Input.GetKey(KeyCode.LeftArrow))
+        if (Input.GetKey(KeyCode.A))
         {
             this.transform.Translate(Vector3.left * 3.0f * Time.deltaTime);
         }
 
-        if (Input.GetKey(KeyCode.RightArrow))
+        if (Input.GetKey(KeyCode.D))
         {
             this.transform.Translate(Vector3.right * 3.0f * Time.deltaTime);
         }
 
-        if(Input.GetKey(KeyCode.R))
+        if(Input.GetMouseButton(1))
         {
             this.transform.Rotate(0.0f, 90.0f * Time.deltaTime, 0.0f);
         }
 
-        if (Input.GetKey(KeyCode.L))
+        if (Input.GetMouseButton(0))
         {
             this.transform.Rotate(0.0f, -90.0f * Time.deltaTime, 0.0f);
         }

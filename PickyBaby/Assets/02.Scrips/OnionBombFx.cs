@@ -6,39 +6,35 @@ public class OnionBombFx : MonoBehaviour
 {
     public GameObject bombFx;//소멸될때 효과
 
-    private FlyingObstacle obstaclescript;
-
-    public void activebomb()
-    {
-        StartCoroutine(activeBombFx());
-    }
-
     public IEnumerator activeBombFx()
     {
         
-        yield return new WaitForSeconds(2.0f);
+        yield return new WaitForSeconds(1.0f);
         GameObject fx = Instantiate(bombFx, transform.position, transform.rotation);
         
         yield return new WaitForSeconds(0.2f);
         this.gameObject.SetActive(false);
-        Destroy(fx, 2.0f);
+        Destroy(fx, 5.0f);
         Destroy(this.gameObject, 1.0f);
         yield return null;
     }
-    void Start()
-    {
-        obstaclescript = this.gameObject.GetComponent<FlyingObstacle>();
-        StartCoroutine(activeBombFx());
-    }
+  
 
     private void OnCollisionEnter(Collision collision)
     {
-       
-        if (collision.collider.transform.CompareTag("Floor"))
+        
+        
+        if (collision.collider.transform.CompareTag("Floor")|| collision.collider.transform.CompareTag("Enemy"))
         {
-            Debug.Log("양파 충돌");
+            Debug.Log("acttiveBomb");
             
             StartCoroutine(activeBombFx());
-        }
+        }    
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.transform.CompareTag("bombEndPos"))
+            Destroy(transform.GetComponent<FlyingObstacle>());
     }
 }
