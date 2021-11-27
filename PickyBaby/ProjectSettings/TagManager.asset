@@ -3,7 +3,13 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - FxTemporaire
+  - Item
+  - Floor
+  - Enemy
+  - start
+  - end
   layers:
   - Default
   - TransparentFX
