@@ -12,7 +12,7 @@ public class StaticEnemyBehavior : MonoBehaviour
 
     private void Start()
     {
-        Debug.Log(endPose.transform.childCount);
+        //Debug.Log(endPose.transform.childCount);
         endPoses = new GameObject[endPose.transform.childCount];
         for (int i = 0; i < endPose.transform.childCount; i++)
             endPoses[i] = endPose.transform.GetChild(i).gameObject;
