@@ -27,7 +27,7 @@ public class OnionBombFx : MonoBehaviour
         
         if (collision.collider.transform.CompareTag("Floor")|| collision.collider.transform.CompareTag("Enemy"))
         {
-            Debug.Log("acttiveBomb");
+            //Debug.Log("acttiveBomb");
             
             StartCoroutine(activeBombFx());
         }    
