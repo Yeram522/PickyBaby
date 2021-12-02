@@ -7,6 +7,7 @@ public class Player : MonoBehaviour
     public float jumpPower;
     public bool isJump = false;
     public GameObject Hand;
+    GameObject pick;
     public bool getitem = false;// 아이템과 접촉한 상태인지?
     public bool hasItem = false; //손에 아이템이 있는지?
 
@@ -53,8 +54,9 @@ public class Player : MonoBehaviour
         {
             this.transform.Rotate(0.0f, -30.0f, 0.0f);
         }
-
-        if (Input.GetKey(KeyCode.E) &&  hasItem == true )
+        
+        // 던지기
+        if (Input.GetKey(KeyCode.E) &&  hasItem )
         {
             Debug.Log("dd");
             dropItem();
@@ -78,12 +80,13 @@ public class Player : MonoBehaviour
         hasItem = true;
     }
 
-    //핸드를 못찾아서 오류가 생김. 해결 어케해야할지 고민 중 (12/1)
+  
     void dropItem()
     {
-        GameObject pick = Hand.GetComponentInChildren<Rigidbody>().gameObject;
+       
+        pick = Hand.GetComponentInChildren<Rigidbody>().gameObject;
         Setitem(pick, false);
-
+        Debug.Log("ㅣㅣ");
         Hand.transform.DetachChildren();
         hasItem = false;
     }
