@@ -10,6 +10,8 @@ TagManager:
   - Enemy
   - start
   - end
+  - bombEndPos
+  - Hand
   layers:
   - Default
   - TransparentFX
