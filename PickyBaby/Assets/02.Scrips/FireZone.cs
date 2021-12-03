@@ -44,7 +44,7 @@ public class FireZone : MonoBehaviour
             for (int i = 0; i < this.transform.childCount; i++)
             {
                 Color color = posesmaterial[i].color;
-                color.a += 0.1f;
+                color.a += 0.05f;
                 posesmaterial[i].SetColor("_Color", color);
             }
         }
@@ -59,8 +59,8 @@ public class FireZone : MonoBehaviour
             fire[i].transform.SetParent(firedposes[i].transform);//해당 지점을 부모로 셋팅.
             fire[i].transform.localScale = new Vector3(1, 1, 1);
 
-            Destroy(firedposes[i], 5.0f);
-            Destroy(fire[i], 5.5f);
+            Destroy(this.gameObject, 5.0f);
+            Destroy(fire[i].gameObject, 5.5f);
         }
         yield return null;
     }
