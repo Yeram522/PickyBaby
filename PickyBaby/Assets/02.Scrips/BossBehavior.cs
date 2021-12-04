@@ -13,8 +13,11 @@ public class BossBehavior : MonoBehaviour
     private float Hp;//Boss HP
     [SerializeField]
     private GameObject[] attackzone = null;
+    [SerializeField]
+    private Animator animator = null;
     private void Start()
     {
+        animator = this.GetComponent<Animator>();
         Hp = 100.0f;
         attackzone = new GameObject[zone.transform.childCount];
         //스킬을 뿌릴 지점을 배열에 넣는다.
@@ -26,6 +29,8 @@ public class BossBehavior : MonoBehaviour
 
     private void Update()
     {
+        this.transform.localPosition = new Vector3(0,0,0);
+        this.transform.localRotation = Quaternion.Euler(new Vector3(0, -110, 0));
         if (Input.GetKeyDown(KeyCode.L))
         {
             StartCoroutine(isAttacable());
@@ -74,6 +79,8 @@ public class BossBehavior : MonoBehaviour
     }
     IEnumerator Attack01()//몹 생성 패턴//여러마리를 드롭한다.
     {
+        animator.SetTrigger("attack1");
+        yield return new WaitForSeconds(0.7f);
         Debug.Log("Boss: 몹을 생성합니다");
         int count = Random.Range(3, 6); //최소 3마리. 최대 6마리까지
         for(int i = 0; i<count;i++)
@@ -87,8 +94,9 @@ public class BossBehavior : MonoBehaviour
 
     IEnumerator Attack02()//불 지르기
     {
+        animator.SetTrigger("attack2");
+        yield return new WaitForSeconds(1.0f);
         Debug.Log("Boss: 불을 지릅니다");
-
         int count = Random.Range(5, 10); //최소 3마리. 최대 6마리까지
         for (int i = 0; i < count; i++)
         {
@@ -106,11 +114,19 @@ public class BossBehavior : MonoBehaviour
 
     IEnumerator Attack03()//당근폭탄 던지기
     {
+        animator.SetTrigger("attack3");
+        yield return new WaitForSeconds(1.0f);
         Debug.Log("Boss: 당근폭탄을 던집니다.");
-        Transform place = attackzone[selectRandomPlace()].transform;
-        Vector3 pos = new Vector3(place.position.x, place.position.y + 10.0f, place.position.z);//약간 위에서 떨어트리기!
-        GameObject carrot = Instantiate(carrotPfb, place.position, carrotPfb.transform.rotation);
-        carrot.transform.SetParent(place);
+
+        int count = Random.Range(5, 10); //최소 3마리. 최대 6마리까지
+        for (int i = 0; i < count; i++)
+        {
+            Transform place = attackzone[selectRandomPlace()].transform;
+            Vector3 pos = new Vector3(place.position.x, place.position.y + 30.0f, place.position.z);//약간 위에서 떨어트리기!
+            GameObject carrot = Instantiate(carrotPfb, place.position, carrotPfb.transform.rotation);
+            carrot.transform.SetParent(place);
+        }
+       
         //carrot.transform.localScale = new Vector3(1, 1, 1);
        // carrot.transform.localPosition = new Vector3(0, 0, 0);
         yield return null;
