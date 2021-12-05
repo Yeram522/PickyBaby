@@ -61,8 +61,7 @@ public class BossBehavior : MonoBehaviour
 
     IEnumerator SelectAttackVar()
     {
-        
-        int n = Random.Range(0, 3);//0~2까지
+        int n = Random.Range(0, 3);//0~3까지
         switch (n)
         {
             case 0:
@@ -80,7 +79,7 @@ public class BossBehavior : MonoBehaviour
     IEnumerator Attack01()//몹 생성 패턴//여러마리를 드롭한다.
     {
         animator.SetTrigger("attack1");
-        yield return new WaitForSeconds(0.7f);
+        yield return new WaitForSeconds(2.5f);
         Debug.Log("Boss: 몹을 생성합니다");
         int count = Random.Range(3, 6); //최소 3마리. 최대 6마리까지
         for(int i = 0; i<count;i++)
@@ -131,4 +130,5 @@ public class BossBehavior : MonoBehaviour
        // carrot.transform.localPosition = new Vector3(0, 0, 0);
         yield return null;
     }
+
 }

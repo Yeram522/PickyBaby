@@ -75,4 +75,8 @@ public class carrotBomb : MonoBehaviour
             istrigger = true;
         }
     }
+    private void OnCollisionExit(Collision collision)
+    {
+        if (collision.collider.transform.CompareTag("Player")) _isexpend = true;
+    }
 }
