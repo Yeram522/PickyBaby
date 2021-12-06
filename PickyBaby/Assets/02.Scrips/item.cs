@@ -36,7 +36,6 @@ public class item : MonoBehaviour
 
             Player_s.pickItem(gameObject);
             getitem = false;
-            //Player_s.hasItem = true;
         }
     }
 
