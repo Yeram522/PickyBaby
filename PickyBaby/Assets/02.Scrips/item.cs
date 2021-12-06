@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class item : MonoBehaviour
 {
-    public bool getitem = false;
     GameObject player;
     public GameObject hand;
     GameObject pick;
     Player Player_s;
+    public bool getitem = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -36,7 +36,6 @@ public class item : MonoBehaviour
 
             Player_s.pickItem(gameObject);
             getitem = false;
-            Player_s.hasItem = true;
         }
     }
 
