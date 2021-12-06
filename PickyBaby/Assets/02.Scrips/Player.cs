@@ -7,7 +7,7 @@ public class Player : MonoBehaviour
     public float jumpPower;
     public bool isJump = false;
     public GameObject Hand;
-    GameObject pick;
+    public GameObject pick;
     public bool getitem = false;// 아이템과 접촉한 상태인지?
     public bool hasItem = false; //손에 아이템이 있는지?
 
@@ -15,7 +15,7 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        Hand = GameObject.FindGameObjectWithTag("Hand");
     }
 
     // Update is called once per frame
@@ -83,10 +83,10 @@ public class Player : MonoBehaviour
   
     void dropItem()
     {
-       
-        pick = Hand.GetComponentInChildren<Rigidbody>().gameObject;
+        Debug.Log(Hand);
+        pick = this.GetComponentInChildren<Rigidbody>().gameObject;
         Setitem(pick, false);
-        Debug.Log("ㅣㅣ");
+
         Hand.transform.DetachChildren();
         hasItem = false;
     }
