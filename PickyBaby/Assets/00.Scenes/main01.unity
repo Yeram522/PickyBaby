@@ -11097,7 +11097,7 @@ GameObject:
   - component: {fileID: 696833263}
   - component: {fileID: 696833262}
   - component: {fileID: 696833261}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Grass(2)
   m_TagString: Floor
   m_Icon: {fileID: 0}
@@ -18250,7 +18250,7 @@ GameObject:
   - component: {fileID: 1339310383}
   - component: {fileID: 1339310382}
   - component: {fileID: 1339310381}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Grass(1)
   m_TagString: Floor
   m_Icon: {fileID: 0}
@@ -20430,7 +20430,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1645223746}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Floor01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21295,7 +21295,7 @@ GameObject:
   - component: {fileID: 1695065673}
   - component: {fileID: 1695065672}
   - component: {fileID: 1695065671}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Grass(3)
   m_TagString: Floor
   m_Icon: {fileID: 0}
@@ -31096,7 +31096,7 @@ GameObject:
   - component: {fileID: 33851705817534994}
   - component: {fileID: 23007988598538182}
   - component: {fileID: 65910482802625796}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Grass
   m_TagString: Floor
   m_Icon: {fileID: 0}
@@ -38053,6 +38053,7 @@ MonoBehaviour:
   pick: {fileID: 0}
   getitem: 0
   hasItem: 0
+  isAimming: 0
 --- !u!4 &4564412719951310604
 Transform:
   m_ObjectHideFlags: 0
