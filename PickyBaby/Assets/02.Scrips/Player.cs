@@ -10,6 +10,7 @@ public class Player : MonoBehaviour
     public GameObject pick;
     public bool getitem = false;// 아이템과 접촉한 상태인지?
     public bool hasItem = false; //손에 아이템이 있는지?
+    public bool isAimming = false;
 
 
     // Start is called before the first frame update
@@ -81,18 +82,73 @@ public class Player : MonoBehaviour
     }
 
   
+    void Aim()
+    {
+        if(!isAimming)
+        {
+            return;
+        }
+
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        RaycastHit rayhit;
+        float rayLength = 500f;
+        int floorMask = LayerMask.GetMask("Floor");
+        Rigidbody rigidbody = this.GetComponent<Rigidbody>();
+        if (Physics.Raycast(ray, out rayhit, rayLength, floorMask))
+        {
+            Debug.DrawRay(Hand.transform.position, rayhit.point, Color.red);
+
+            Vector3 palyerToMouse = rayhit.point - Hand.transform.position;
+            palyerToMouse.y = 0f;
+
+            Quaternion newRotation = Quaternion.LookRotation(palyerToMouse);
+            rigidbody.MoveRotation(newRotation);
+        }
+    }
     void dropItem()
     {
-        Debug.Log(Hand);
-        pick = this.GetComponentInChildren<Rigidbody>().gameObject;
+       /*
+        pick = Hand.GetComponentInChildren<Rigidbody>().gameObject;
         Setitem(pick, false);
-
+  
         Hand.transform.DetachChildren();
         hasItem = false;
+        */
+     
+        pick = Hand.GetComponentInChildren<Rigidbody>().gameObject;
+        Rigidbody pick_rigidbody = pick.GetComponent<Rigidbody> ();
+        
+        Setitem(pick, false);
+        Hand.transform.DetachChildren();
+        
+
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        RaycastHit rayhit;
+        float rayLength = 5f;
+        int floorMask = LayerMask.GetMask("Floor");
+        Vector3 throwAngle;
+
+        if(Physics.Raycast(ray, out rayhit, rayLength,floorMask))
+        {
+            throwAngle = rayhit.point - Hand.transform.position;
+        }
+
+        else
+        {
+            throwAngle = transform.forward * 70f;
+        }
+
+    
+        throwAngle.y = 25f;
+        pick_rigidbody.AddForce(throwAngle * 1, ForceMode.Impulse);
+
+        hasItem = false;
+
     }
 
     void Setitem(GameObject pick, bool getitem)
     {
+        Debug.Log(!getitem);
         Collider[] pickColliders = pick.GetComponents<Collider>();
         Rigidbody pickRigidbody = pick.GetComponent<Rigidbody>();
 

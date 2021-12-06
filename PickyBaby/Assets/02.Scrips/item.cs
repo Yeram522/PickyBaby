@@ -27,6 +27,7 @@ public class item : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         if (Input.GetKey(KeyCode.LeftShift) && getitem == true)
         {
             Debug.Log("aa");
@@ -48,5 +49,14 @@ public class item : MonoBehaviour
         {
             getitem = true;
         }
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        if(collision.transform.tag == "Player")
+        {
+            getitem = false;
+        }
+
     }
 }
