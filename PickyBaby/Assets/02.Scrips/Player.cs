@@ -12,7 +12,7 @@ public class Player : MonoBehaviour
     public bool hasItem = false; //손에 아이템이 있는지?
     public bool isAimming = false;
 
-
+    public float power;
     // Start is called before the first frame update
     void Start()
     {
@@ -61,7 +61,8 @@ public class Player : MonoBehaviour
         {
             Debug.Log("dd");
             dropItem();
-        }  
+        }
+
 
     }
 
@@ -82,29 +83,7 @@ public class Player : MonoBehaviour
     }
 
   
-    void Aim()
-    {
-        if(!isAimming)
-        {
-            return;
-        }
-
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        RaycastHit rayhit;
-        float rayLength = 500f;
-        int floorMask = LayerMask.GetMask("Floor");
-        Rigidbody rigidbody = this.GetComponent<Rigidbody>();
-        if (Physics.Raycast(ray, out rayhit, rayLength, floorMask))
-        {
-            Debug.DrawRay(Hand.transform.position, rayhit.point, Color.red);
-
-            Vector3 palyerToMouse = rayhit.point - Hand.transform.position;
-            palyerToMouse.y = 0f;
-
-            Quaternion newRotation = Quaternion.LookRotation(palyerToMouse);
-            rigidbody.MoveRotation(newRotation);
-        }
-    }
+   
     void dropItem()
     {
        /*
@@ -120,9 +99,8 @@ public class Player : MonoBehaviour
         
         Setitem(pick, false);
         Hand.transform.DetachChildren();
-        
 
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        Ray ray = new Ray(transform.position, transform.forward); //ray 캐릭터가 바라보는 방향으로 쏘기
         RaycastHit rayhit;
         float rayLength = 5f;
         int floorMask = LayerMask.GetMask("Floor");
@@ -135,11 +113,11 @@ public class Player : MonoBehaviour
 
         else
         {
-            throwAngle = transform.forward * 70f;
+            throwAngle = transform.forward * power; // 날아가는 거리
         }
 
     
-        throwAngle.y = 25f;
+        throwAngle.y = 5f; //포물선으로 날아갈때 위로 뜨는 각도
         pick_rigidbody.AddForce(throwAngle * 1, ForceMode.Impulse);
 
         hasItem = false;
