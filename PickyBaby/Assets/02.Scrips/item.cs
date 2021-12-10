@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
 
 public class item : MonoBehaviour
 {
@@ -9,10 +10,11 @@ public class item : MonoBehaviour
     GameObject pick;
     Player Player_s;
     public bool getitem = false;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     void Awake()
@@ -36,9 +38,9 @@ public class item : MonoBehaviour
             transform.rotation = new Quaternion(0, 0, 0, 0);
 
             Player_s.pickItem(gameObject);
+          //  StartCoroutine(Player_s.pickIt(gameObject));
             getitem = false;
         }
-
 
     }
 
