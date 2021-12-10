@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
 
 public class Player : MonoBehaviour
 {
@@ -11,12 +12,15 @@ public class Player : MonoBehaviour
     public bool getitem = false;// 아이템과 접촉한 상태인지?
     public bool hasItem = false; //손에 아이템이 있는지?
     public bool isAimming = false;
+    
+    Animator animator;
 
     public float power;
     // Start is called before the first frame update
     void Start()
     {
         Hand = GameObject.FindGameObjectWithTag("Hand");
+        animator = GetComponentInChildren<Animator>();
     }
 
     // Update is called once per frame
@@ -24,46 +28,81 @@ public class Player : MonoBehaviour
     {
         // 점프
         Jump();
-
+ 
         //이동 및 회전
         if (Input.GetKey(KeyCode.W))
         {
-            this.transform.Translate(Vector3.forward * 3.0f * Time.deltaTime);
+            this.transform.Translate(Vector3.forward * 4.0f * Time.deltaTime);
+            animator.SetBool("Run", true);
+        }
+        else 
+        {
+            animator.SetBool("Run", false);
         }
 
         if (Input.GetKey(KeyCode.S))
         {
-            this.transform.Translate(Vector3.back * 3.0f * Time.deltaTime);
+            this.transform.Translate(Vector3.back * 4.0f * Time.deltaTime);
+            animator.SetBool("Run", true);
+        }
+        else
+        {
+            animator.SetBool("Run", false);
         }
 
         if (Input.GetKey(KeyCode.A))
         {
-            this.transform.Translate(Vector3.left * 3.0f * Time.deltaTime);
+            this.transform.Translate(Vector3.left * 4.0f * Time.deltaTime);
+            animator.SetBool("Run", true);
+        }
+        else
+        {
+            animator.SetBool("Run", false);
         }
 
         if (Input.GetKey(KeyCode.D))
         {
-            this.transform.Translate(Vector3.right * 3.0f * Time.deltaTime);
+            this.transform.Translate(Vector3.right * 4.0f * Time.deltaTime);
+            animator.SetBool("Run", true);
         }
+        else
+        {
+            animator.SetBool("Run", false);
+        }
+
 
         if (Input.GetMouseButtonDown(0))
         {
             this.transform.Rotate(0.0f, 30.0f, 0.0f);
+            animator.SetBool("Run", true);
+        }
+        else
+        {
+            animator.SetBool("Run", false);
         }
 
         if (Input.GetMouseButtonDown(1))
         {
             this.transform.Rotate(0.0f, -30.0f, 0.0f);
+            animator.SetBool("Run", true);
         }
-        
+        else
+        {
+            animator.SetBool("Run", false);
+        }
+
         // 던지기
         if (Input.GetKey(KeyCode.E) &&  hasItem )
         {
-            Debug.Log("dd");
-            dropItem();
+            StartCoroutine(throwItem());
         }
+    }
 
-
+    IEnumerator throwItem()
+    {
+        animator.SetTrigger("throw");
+        yield return new WaitForSeconds(0.8f);
+        dropItem();
     }
 
     void Jump()
@@ -72,6 +111,7 @@ public class Player : MonoBehaviour
         {
             GetComponent<Rigidbody>().velocity = new Vector3(0, jumpPower, 0);
             isJump = true;
+            animator.SetTrigger("Jump");
 
         }
     }
@@ -80,20 +120,26 @@ public class Player : MonoBehaviour
     {
         Setitem(pick, true);
         hasItem = true;
+        animator.SetTrigger("Pick");
     }
 
-  
-   
+    public IEnumerator pickIt(GameObject pick)
+    {
+        animator.SetTrigger("Pick");
+        yield return new WaitForSeconds(5.0f);
+        pickItem(pick);
+    }
+
+
     void dropItem()
     {
-       /*
-        pick = Hand.GetComponentInChildren<Rigidbody>().gameObject;
-        Setitem(pick, false);
-  
-        Hand.transform.DetachChildren();
-        hasItem = false;
-        */
-     
+        /*
+         pick = Hand.GetComponentInChildren<Rigidbody>().gameObject;
+         Setitem(pick, false);
+
+         Hand.transform.DetachChildren();
+         hasItem = false;
+         */
         pick = Hand.GetComponentInChildren<Rigidbody>().gameObject;
         Rigidbody pick_rigidbody = pick.GetComponent<Rigidbody> ();
         
