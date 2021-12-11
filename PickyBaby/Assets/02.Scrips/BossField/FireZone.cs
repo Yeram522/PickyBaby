@@ -65,5 +65,10 @@ public class FireZone : MonoBehaviour
         yield return null;
     }
 
-   
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+            other.GetComponent<Player>().HP -= 0.1f;
+    }
+
 }

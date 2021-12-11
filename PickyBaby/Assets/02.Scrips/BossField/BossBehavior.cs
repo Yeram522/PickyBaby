@@ -70,8 +70,8 @@ public class BossBehavior : MonoBehaviour
 
      IEnumerator SelectAttackVar()
     {
-        //int n = Random.Range(0, 3);//0~3까지
-        int n = 2;//0~3까지
+        int n = Random.Range(0, 3);//0~3까지
+        //int n = 2;//0~3까지
         switch (n)
         {
             case 0:
