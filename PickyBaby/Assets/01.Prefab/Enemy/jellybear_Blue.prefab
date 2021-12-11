@@ -1258,7 +1258,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 567020a64fb862c40bb4765dafda9c50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isVariable: 0
   spawnItem: {fileID: 988770781164349650, guid: 605d943ae560d324cbe74a6f16765c73, type: 3}
+  spawnItems:
+  - {fileID: 988770781164349650, guid: 605d943ae560d324cbe74a6f16765c73, type: 3}
+  - {fileID: 100000, guid: 8db774d63ffa4304fb8dddd6116ead54, type: 3}
+  - {fileID: 100000, guid: f889d6e3d71e9c54eaf07783b7e5348c, type: 3}
   destroyFx: {fileID: 100018, guid: a40b64bf23366dc42a892af2c6ff6140, type: 3}
   animator: {fileID: 3701866296425531100}
 --- !u!54 &7995111654526469662
