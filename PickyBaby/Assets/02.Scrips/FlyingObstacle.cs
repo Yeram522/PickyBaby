@@ -23,28 +23,6 @@ public class FlyingObstacle : MonoBehaviour
         
         StartCoroutine(DelayUpdate());
     }
-  
-
-
-    private void Update()
-    {
-        //if (!canShoot) return;
-          
-        //if (transform.position == endpos.position)
-        //{
-        //    Debug.Log("충돌");
-        //    Destroy(this);
-        //}
-        //Vector3 center = (startpos.position + endpos.position) * 0.5f;
-
-        //center -= new Vector3(0, 1.0f * reduceHeight, 0);//y값을 높이면 높이가 낮아진다.
-        //Vector3 riseRelCenter = startpos.position - center;
-        //Vector3 setRelCenter = endpos.position - center;
-        //float fracComplete = (Time.time - startTime) / flytime;
-        //transform.position = Vector3.Slerp(riseRelCenter, setRelCenter, fracComplete);
-        //transform.position += center;
-        
-    }
 
     IEnumerator DelayUpdate()
     {

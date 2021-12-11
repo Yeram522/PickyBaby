@@ -12,19 +12,12 @@ public class StaticEnemyBehavior : MonoBehaviour
 
     private void Start()
     {
-        Debug.Log(endPose.transform.childCount);
+        //Debug.Log(endPose.transform.childCount);
         endPoses = new GameObject[endPose.transform.childCount];
         for (int i = 0; i < endPose.transform.childCount; i++)
             endPoses[i] = endPose.transform.GetChild(i).gameObject;
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.B))
-        {
-            StartCoroutine(shootOnion());
-        }
-    }
 
     IEnumerator shootOnion()//Onion 위치정보를 랜덤으로 생성하고 발사한다.
     {
@@ -33,8 +26,7 @@ public class StaticEnemyBehavior : MonoBehaviour
             new Vector3(transform.position.x, transform.position.y+1.5f, transform.position.z), transform.rotation);
         onion.transform.SetParent(this.transform);
         onion.GetComponent<FlyingObstacle>().setObstacleInfo(endPoses[rnd].transform);
-       // onion.GetComponent<FlyingObstacle>().canShoot =true;
-        //yield return shootDelay();
+  
         yield return null ;
     }
 

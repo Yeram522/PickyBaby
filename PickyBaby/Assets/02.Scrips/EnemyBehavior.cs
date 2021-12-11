@@ -38,7 +38,7 @@ public class EnemyBehavior : MonoBehaviour
         if(target != null)
         {
             Vector3 dir = target.position - transform.position;
-            transform.Translate(dir.normalized * enemyMoveSpeed * Time.deltaTime);
+            transform.Translate(dir.normalized * -enemyMoveSpeed * Time.deltaTime);
             Quaternion q = Quaternion.LookRotation(dir.normalized);
             float y = q.eulerAngles.y;
             transform.rotation = Quaternion.Euler(new Vector3(0, y, 0));

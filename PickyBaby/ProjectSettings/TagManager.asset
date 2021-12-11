@@ -10,11 +10,16 @@ TagManager:
   - Enemy
   - start
   - end
+  - bombEndPos
+  - Hand
+  - Boss
+  - Stop
+  - talk
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Floor
   - Water
   - UI
   - 
