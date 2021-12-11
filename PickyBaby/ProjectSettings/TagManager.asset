@@ -13,6 +13,7 @@ TagManager:
   - bombEndPos
   - Hand
   - Boss
+  - Stop
   layers:
   - Default
   - TransparentFX

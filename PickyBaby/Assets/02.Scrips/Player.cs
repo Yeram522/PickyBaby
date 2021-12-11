@@ -33,63 +33,44 @@ public class Player : MonoBehaviour
         if (Input.GetKey(KeyCode.W))
         {
             this.transform.Translate(Vector3.forward * 4.0f * Time.deltaTime);
-            animator.SetBool("Run", true);
+            animator.SetTrigger("Run");
         }
-        else 
-        {
-            animator.SetBool("Run", false);
-        }
+      
 
         if (Input.GetKey(KeyCode.S))
         {
             this.transform.Translate(Vector3.back * 4.0f * Time.deltaTime);
-            animator.SetBool("Run", true);
-        }
-        else
-        {
-            animator.SetBool("Run", false);
+            animator.SetTrigger("Run");
         }
 
         if (Input.GetKey(KeyCode.A))
         {
             this.transform.Translate(Vector3.left * 4.0f * Time.deltaTime);
-            animator.SetBool("Run", true);
+            animator.SetTrigger("Run");
         }
-        else
-        {
-            animator.SetBool("Run", false);
-        }
+      
 
         if (Input.GetKey(KeyCode.D))
         {
             this.transform.Translate(Vector3.right * 4.0f * Time.deltaTime);
-            animator.SetBool("Run", true);
+            animator.SetTrigger("Run");
         }
-        else
-        {
-            animator.SetBool("Run", false);
-        }
+      
 
 
         if (Input.GetMouseButtonDown(0))
         {
             this.transform.Rotate(0.0f, 30.0f, 0.0f);
-            animator.SetBool("Run", true);
+           
         }
-        else
-        {
-            animator.SetBool("Run", false);
-        }
+    
 
         if (Input.GetMouseButtonDown(1))
         {
             this.transform.Rotate(0.0f, -30.0f, 0.0f);
-            animator.SetBool("Run", true);
+            
         }
-        else
-        {
-            animator.SetBool("Run", false);
-        }
+     
 
         // ´øÁö±â
         if (Input.GetKey(KeyCode.E) &&  hasItem )
