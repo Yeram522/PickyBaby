@@ -16,9 +16,11 @@ public class carrotBomb : MonoBehaviour
     public Material submaterial;//당근이 탈 때? 머터리얼.
     private bool _isexpend = true;
     private bool istrigger;
+    private GameObject collisionObj;
     void Start()
     {
         istrigger = false;
+        Destroy(this.transform.parent.gameObject, 10.0f);//어떤 이유로 충돌받지 않으면 자동으로 소멸
     }
 
     IEnumerator expendedBomb()//사방으로 같이 터지는 경우
@@ -31,10 +33,10 @@ public class carrotBomb : MonoBehaviour
         {
             powers[i] = power.transform.GetChild(i).gameObject;
             GameObject Fx = Instantiate(groundFX, powers[i].transform.position, powers[i].transform.rotation);
-            //Fx.transform.SetParent(powers[i].transform);
+            Fx.transform.SetParent(powers[i].transform);
             //Fx.transform.localScale = new Vector3(1, 1, 1);
 
-            Destroy(this.transform.parent.gameObject, 1.0f);
+            Destroy(this.transform.gameObject, 1.0f);
             Destroy(Fx, 15.0f);
         }
         Destroy(bmbFx, 3.0f);
@@ -42,9 +44,9 @@ public class carrotBomb : MonoBehaviour
     }
     IEnumerator castingbomb()//일반 4초뒤 터짐
     {
-        yield return new WaitForSeconds(3.0f);//3초 뒤
+        yield return new WaitForSeconds(4.0f);//3초 뒤
         this.transform.GetComponent<Renderer>().material = submaterial;//검정색 머터리얼로 바뀌고?
-        yield return new WaitForSeconds(1.0f);//1초 뒤
+        yield return new WaitForSeconds(2.0f);//1초 뒤
 
         if(_isexpend) StartCoroutine(expendedBomb());
         else StartCoroutine(bomb());
@@ -55,9 +57,9 @@ public class carrotBomb : MonoBehaviour
     IEnumerator bomb()//바로 터짐
     {       
         GameObject Fx = Instantiate(bombFX, this.transform.position, this.transform.rotation);
-        
-       /*Fx.transform.SetParent(this.transform);
-        Fx.transform.localScale = new Vector3(1, 1, 1);*/
+
+        if (!_isexpend && collisionObj.CompareTag("Player"))
+            collisionObj.GetComponent<Player>().HP -= 0.2f;
         Destroy(this.transform.parent.gameObject, 0.6f);
         Destroy(Fx, 3.0f);
        yield return null;
@@ -65,7 +67,11 @@ public class carrotBomb : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.collider.transform.CompareTag("Player")) _isexpend = false;
+
+        collisionObj = collision.gameObject;
+        if (collision.collider.transform.CompareTag("Player"))
+            _isexpend = false;
+        
         if (collision.collider.transform.CompareTag("Floor")) _isexpend = true;
 
         if (!istrigger)//아래는 한번만 실행
@@ -77,6 +83,10 @@ public class carrotBomb : MonoBehaviour
     }
     private void OnCollisionExit(Collision collision)
     {
-        if (collision.collider.transform.CompareTag("Player")) _isexpend = true;
+        if (collision.collider.transform.CompareTag("Player"))
+        {
+            _isexpend = true;
+            collisionObj = null;
+        }
     }
 }

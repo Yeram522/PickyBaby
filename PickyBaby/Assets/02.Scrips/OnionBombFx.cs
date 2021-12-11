@@ -31,6 +31,9 @@ public class OnionBombFx : MonoBehaviour
             
             StartCoroutine(activeBombFx());
         }    
+        
+        if(collision.gameObject.CompareTag("Player"))
+            collision.gameObject.GetComponent<Player>().HP -= 0.1f;
     }
 
     private void OnTriggerEnter(Collider other)

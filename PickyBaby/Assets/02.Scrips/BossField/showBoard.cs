@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class showBoard : MonoBehaviour
 {
+    public GameObject Boss;
     public GameObject UImanager;
     private bool trigger;
 
@@ -18,6 +19,15 @@ public class showBoard : MonoBehaviour
         {
             UImanager.GetComponent<map2UImanager>().showUIBoard2();
             trigger = true;
+            StartCoroutine(showUpBoss());
+            
+            
         }
+    }
+
+    private IEnumerator showUpBoss()
+    {
+        Boss.SetActive(true);
+        yield return null;
     }
 }

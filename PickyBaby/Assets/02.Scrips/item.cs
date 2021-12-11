@@ -34,7 +34,8 @@ public class item : MonoBehaviour
         {
             Debug.Log("aa");
             transform.SetParent(hand.transform);
-            transform.localPosition = Vector3.zero;
+            this.transform.localPosition = Vector3.one;
+            
             transform.rotation = new Quaternion(0, 0, 0, 0);
 
             Player_s.pickItem(gameObject);

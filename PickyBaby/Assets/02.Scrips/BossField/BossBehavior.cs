@@ -1,44 +1,53 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BossBehavior : MonoBehaviour
 {
+    public GameObject bossUI;//HP UI
     public GameObject zone;
     public GameObject jbearPfb;//젤리곰 프리팹
     public GameObject firePfb;//불지르기 프리팹
     public GameObject carrotPfb;//당근폭탄 프리팹
-   
+
+    private Slider uiHp;
     [SerializeField]
-    private float Hp;//Boss HP
+    public float Hp;//Boss HP
     [SerializeField]
     private GameObject[] attackzone = null;
     [SerializeField]
     private Animator animator = null;
     private void Start()
     {
+        bossUI.transform.parent.gameObject.SetActive(true);//보스 체력 UI 활성화
+
         animator = this.GetComponent<Animator>();
-        Hp = 100.0f;
+        uiHp = bossUI.GetComponent<Slider>();
+        Hp = 1.0f;
         attackzone = new GameObject[zone.transform.childCount];
         //스킬을 뿌릴 지점을 배열에 넣는다.
         for (int i = 0; i < zone.transform.childCount; i++)
         {
             attackzone[i] = zone.transform.GetChild(i).gameObject;
         }
+
+        StartCoroutine(isAttacable());
     }
 
     private void Update()
     {
+        uiHp.value = Hp;
         this.transform.localPosition = new Vector3(0,0,0);
         this.transform.localRotation = Quaternion.Euler(new Vector3(0, -110, 0));
         if (Input.GetKeyDown(KeyCode.L))
         {
-            StartCoroutine(isAttacable());
+            
         }
      
     }
 
-    IEnumerator isAttacable()//공격가능한 상태
+     IEnumerator isAttacable()//공격가능한 상태
     {
         while(Hp>0)//Boss의 HP가 0보다 크면 계속 공격이 가능하다.
         {
@@ -59,9 +68,10 @@ public class BossBehavior : MonoBehaviour
               
     }
 
-    IEnumerator SelectAttackVar()
+     IEnumerator SelectAttackVar()
     {
         int n = Random.Range(0, 3);//0~3까지
+        //int n = 2;//0~3까지
         switch (n)
         {
             case 0:
