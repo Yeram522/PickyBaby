@@ -172,5 +172,6 @@ public class Player : MonoBehaviour
         {
             isJump = false;
         }
+
     }
 }
