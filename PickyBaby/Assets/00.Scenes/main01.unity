@@ -3612,6 +3612,16 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 376733690}
   m_Mesh: {fileID: 4300000, guid: c2cf9f73c2c052c47baf679fa7478662, type: 3}
+--- !u!1 &383227142 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5391983216425516232, guid: 1b24e751b0c6798489bc9d74a1b7c25e, type: 3}
+  m_PrefabInstance: {fileID: 1354276908}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &383227146 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 5391983216425516235, guid: 1b24e751b0c6798489bc9d74a1b7c25e, type: 3}
+  m_PrefabInstance: {fileID: 1354276908}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &391018900
 GameObject:
   m_ObjectHideFlags: 0
@@ -21123,6 +21133,111 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1339310379}
   m_Mesh: {fileID: 4300000, guid: c2cf9f73c2c052c47baf679fa7478662, type: 3}
+--- !u!1001 &1354276908
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 3504791416086146715}
+    m_Modifications:
+    - target: {fileID: 5391983216411152599, guid: 1b24e751b0c6798489bc9d74a1b7c25e, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5391983216411152599, guid: 1b24e751b0c6798489bc9d74a1b7c25e, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5391983216425516232, guid: 1b24e751b0c6798489bc9d74a1b7c25e, type: 3}
+      propertyPath: m_Name
+      value: PlayerHP
+      objectReference: {fileID: 0}
+    - target: {fileID: 5391983216425516235, guid: 1b24e751b0c6798489bc9d74a1b7c25e, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5391983216425516235, guid: 1b24e751b0c6798489bc9d74a1b7c25e, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5391983216425516235, guid: 1b24e751b0c6798489bc9d74a1b7c25e, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5391983216425516235, guid: 1b24e751b0c6798489bc9d74a1b7c25e, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5391983216425516235, guid: 1b24e751b0c6798489bc9d74a1b7c25e, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5391983216425516235, guid: 1b24e751b0c6798489bc9d74a1b7c25e, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5391983216425516235, guid: 1b24e751b0c6798489bc9d74a1b7c25e, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5391983216425516235, guid: 1b24e751b0c6798489bc9d74a1b7c25e, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5391983216425516235, guid: 1b24e751b0c6798489bc9d74a1b7c25e, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5391983216425516235, guid: 1b24e751b0c6798489bc9d74a1b7c25e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5391983216425516235, guid: 1b24e751b0c6798489bc9d74a1b7c25e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5391983216425516235, guid: 1b24e751b0c6798489bc9d74a1b7c25e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5391983216425516235, guid: 1b24e751b0c6798489bc9d74a1b7c25e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5391983216425516235, guid: 1b24e751b0c6798489bc9d74a1b7c25e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5391983216425516235, guid: 1b24e751b0c6798489bc9d74a1b7c25e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5391983216425516235, guid: 1b24e751b0c6798489bc9d74a1b7c25e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5391983216425516235, guid: 1b24e751b0c6798489bc9d74a1b7c25e, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5391983216425516235, guid: 1b24e751b0c6798489bc9d74a1b7c25e, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5391983216425516235, guid: 1b24e751b0c6798489bc9d74a1b7c25e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5391983216425516235, guid: 1b24e751b0c6798489bc9d74a1b7c25e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5391983216425516235, guid: 1b24e751b0c6798489bc9d74a1b7c25e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1b24e751b0c6798489bc9d74a1b7c25e, type: 3}
 --- !u!1 &1368730784
 GameObject:
   m_ObjectHideFlags: 0
@@ -41686,6 +41801,7 @@ Transform:
   - {fileID: 963194228}
   - {fileID: 9003777531545472527}
   - {fileID: 8273695827156258975}
+  - {fileID: 383227146}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 51.596, z: 0}
@@ -41875,8 +41991,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d47995aeb01477b4e86ab93813c44db3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerStatusUI: {fileID: 383227142}
   jumpPower: 10
   isJump: 0
+  HP: 0
   Hand: {fileID: 0}
   pick: {fileID: 0}
   getitem: 0
