@@ -2,23 +2,30 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
+    public GameObject playerStatusUI;
     public float jumpPower;
     public bool isJump = false;
+    public float HP;
     public GameObject Hand;
     public GameObject pick;
     public bool getitem = false;// 아이템과 접촉한 상태인지?
     public bool hasItem = false; //손에 아이템이 있는지?
     public bool isAimming = false;
-    
+
+    private Slider uiHp;
     Animator animator;
 
     public float power;
     // Start is called before the first frame update
     void Start()
     {
+        //playerStatusUI = this.transform.Find("PlayerHP").gameObject;
+        HP = 1.0f;
+        uiHp = playerStatusUI.transform.GetChild(0).GetComponent<Slider>();
         Hand = GameObject.FindGameObjectWithTag("Hand");
         animator = GetComponentInChildren<Animator>();
     }
@@ -26,6 +33,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        uiHp.value = HP;
         // 점프
         Jump();
  
