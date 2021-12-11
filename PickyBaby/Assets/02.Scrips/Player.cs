@@ -41,29 +41,30 @@ public class Player : MonoBehaviour
         if (Input.GetKey(KeyCode.W))
         {
             this.transform.Translate(Vector3.forward * 4.0f * Time.deltaTime);
-            animator.SetTrigger("Run");
+            animator.SetBool("isRunning", true);
         }
       
 
         if (Input.GetKey(KeyCode.S))
         {
             this.transform.Translate(Vector3.back * 4.0f * Time.deltaTime);
-            animator.SetTrigger("Run");
+            animator.SetBool("isRunning", true);
         }
 
         if (Input.GetKey(KeyCode.A))
         {
             this.transform.Translate(Vector3.left * 4.0f * Time.deltaTime);
-            animator.SetTrigger("Run");
+            animator.SetBool("isRunning", true);
         }
       
 
         if (Input.GetKey(KeyCode.D))
         {
             this.transform.Translate(Vector3.right * 4.0f * Time.deltaTime);
-            animator.SetTrigger("Run");
+            animator.SetBool("isRunning", true);
         }
-      
+
+        if(Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.S) || Input.GetKeyUp(KeyCode.A)||Input.GetKeyUp(KeyCode.D)) animator.SetBool("isRunning", false);
 
 
         if (Input.GetMouseButtonDown(0))
