@@ -60,7 +60,7 @@ public class EnemyBehavior : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player")&& other.CompareTag("shield"))
+        if (other.CompareTag("Player"))
         {
            // Debug.Log("EnemyDie");
             GameObject fx =Instantiate(destroyFx, this.transform.position, this.transform.rotation);

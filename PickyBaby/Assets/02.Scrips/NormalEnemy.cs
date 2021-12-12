@@ -9,7 +9,7 @@ public class NormalEnemy : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.collider.CompareTag("Player"))
+        if(collision.collider.CompareTag("Player") && !collision.gameObject.CompareTag("shield"))
         {
             Debug.Log("플레이어와 곰돌이 충돌");
             if (getshield.Shield > 0)
