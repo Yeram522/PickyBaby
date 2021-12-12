@@ -7,27 +7,42 @@ using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
-    public bool isItem = false;
-    public bool speedup = false;
-    public bool speeddown = false;
-    public bool hpup = false;
+    //item
+    bool isItem = false;
+    bool speedup = false;
+    bool speeddown = false;
+    bool hpup = false;
     float uptime;
     float downtime;
 
+    //skill
+    //이단 점프 - 마우스 클릭시 사용 가능하도록 하면 됨.
+    public bool doublejump = false;
+    int jumppoint = 2;
+    //사망시 체력 30으로 부활
+    public bool lifeBack = false;
+    //방어막 3회
+    public bool isShield = false;
+    int Shield = 3;
+
+    //UI
     public GameObject playerStatusUI;
+    public float HP;
+    private Slider uiHp;
+
+    //player 기능
     float speed = 4.0f;
     public float jumpPower;
     public bool isJump = false;
-    public float HP;
+    public float power;
     public GameObject Hand;
     public GameObject pick;
     public bool getitem = false;// 아이템과 접촉한 상태인지?
     public bool hasItem = false; //손에 아이템이 있는지?
     public bool isAimming = false;
-    private Slider uiHp;
     Animator animator;
 
-    public float power;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -38,6 +53,11 @@ public class Player : MonoBehaviour
         animator = GetComponentInChildren<Animator>();
         uptime = 0;
         downtime = 0;
+
+        if(isShield == true)
+        {
+
+        }
     }
 
     // Update is called once per frame
@@ -58,13 +78,18 @@ public class Player : MonoBehaviour
             isItem = false;
         }
 
+        //사망시 30 체력으로 부활 아이템 (즉사는 해당 안됨.)
+        if(lifeBack == true && HP <= 0.0f)
+        {
+            HP += 0.3f;
+            lifeBack = false;
+        }
 
         if (Input.GetMouseButtonDown(0))
         {
             this.transform.Rotate(0.0f, 30.0f, 0.0f);
            
         }
-    
 
         if (Input.GetMouseButtonDown(1))
         {
@@ -89,12 +114,32 @@ public class Player : MonoBehaviour
 
     void Jump()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && !isJump)
+        //더블 점프
+        if(doublejump == true)
         {
-            GetComponent<Rigidbody>().velocity = new Vector3(0, jumpPower, 0);
-            isJump = true;
-            animator.SetTrigger("Jump");
+            if(jumppoint == 0)
+            {
+                isJump = true;
+                jumppoint = 2;
+            }
 
+            if (Input.GetKeyDown(KeyCode.Space) && !isJump)
+            {
+                GetComponent<Rigidbody>().velocity = new Vector3(0, jumpPower, 0);
+                jumppoint -= 1;
+                animator.SetTrigger("Jump");
+            }
+        }
+
+        //기본 점프
+        else
+        {
+            if (Input.GetKeyDown(KeyCode.Space) && !isJump)
+            {
+                GetComponent<Rigidbody>().velocity = new Vector3(0, jumpPower, 0);
+                isJump = true;
+                animator.SetTrigger("Jump");
+            }
         }
     }
 
@@ -328,3 +373,6 @@ public class Player : MonoBehaviour
         }
     }
 }
+
+//쉴드 적용하면 콜라이더 바깥에 생김. 
+//그거 3번 충돌하고 나면 사라짐.
