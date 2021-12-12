@@ -82,7 +82,7 @@ public class Player : MonoBehaviour
         }
 
         //방어막 3회
-        if(isShield == true)
+        if (isShield == true)
         {
             this.gameObject.transform.GetChild(4).gameObject.SetActive(true);
         }
