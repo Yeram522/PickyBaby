@@ -40,7 +40,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3734352615385304613}
-  - component: {fileID: 76725089284345789}
   m_Layer: 7
   m_Name: mixamorig:Head
   m_TagString: Untagged
@@ -63,19 +62,6 @@ Transform:
   m_Father: {fileID: 4060359924132554591}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!135 &76725089284345789
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 392490455366940713}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.3
-  m_Center: {x: 0, y: 0.1, z: 0.1}
 --- !u!1 &750189653683270412
 GameObject:
   m_ObjectHideFlags: 0
@@ -284,6 +270,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6529864077135028960}
   - component: {fileID: 646864496913276310}
+  - component: {fileID: 416404451492080870}
   m_Layer: 7
   m_Name: Cube.001
   m_TagString: Enemy
@@ -385,6 +372,20 @@ SkinnedMeshRenderer:
     m_Center: {x: -0.055078924, y: 0.05765775, z: 0.16534364}
     m_Extent: {x: 0.643954, y: 1.0158353, z: 0.503094}
   m_DirtyAABB: 0
+--- !u!64 &416404451492080870
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1937477921517648733}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4493585093827132993, guid: d8c705f456248cb428ce8e561f7db834, type: 3}
 --- !u!1 &2242510089906362186
 GameObject:
   m_ObjectHideFlags: 0
