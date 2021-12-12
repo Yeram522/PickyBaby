@@ -66,26 +66,28 @@ public class Player : MonoBehaviour
 
         if(Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.S) || Input.GetKeyUp(KeyCode.A)||Input.GetKeyUp(KeyCode.D)) animator.SetBool("isRunning", false);
 
+        // 던지기
+        if (Input.GetKey(KeyCode.E) && hasItem)
+        {
+            StartCoroutine(throwItem());
+        }
+
 
         if (Input.GetMouseButtonDown(0))
         {
             this.transform.Rotate(0.0f, 30.0f, 0.0f);
-           
+
         }
-    
+
 
         if (Input.GetMouseButtonDown(1))
         {
             this.transform.Rotate(0.0f, -30.0f, 0.0f);
-            
-        }
-     
 
-        // 던지기
-        if (Input.GetKey(KeyCode.E) &&  hasItem )
-        {
-            StartCoroutine(throwItem());
         }
+
+
+
     }
 
     IEnumerator throwItem()

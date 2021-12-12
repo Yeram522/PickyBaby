@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class EnemyBehavior : MonoBehaviour
 {
     public bool isVariable;//여러 아이템을 스폰하는가?
+
     public GameObject spawnItem = null;
     public GameObject[] spawnItems = new GameObject[3];//외부에서 개수 정하기
     public GameObject destroyFx = null;
