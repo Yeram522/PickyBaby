@@ -15,6 +15,9 @@ TagManager:
   - Boss
   - Stop
   - talk
+  - speedUP
+  - speedDown
+  - HpUp
   layers:
   - Default
   - TransparentFX

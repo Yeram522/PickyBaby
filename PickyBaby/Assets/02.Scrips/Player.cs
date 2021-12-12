@@ -6,7 +6,15 @@ using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
+    public bool isItem = false;
+    public bool speedup = false;
+    public bool speeddown = false;
+    public bool hpup = false;
+    float uptime;
+    float downtime;
+
     public GameObject playerStatusUI;
+    float speed = 4.0f;
     public float jumpPower;
     public bool isJump = false;
     public float HP;
@@ -15,7 +23,6 @@ public class Player : MonoBehaviour
     public bool getitem = false;// 아이템과 접촉한 상태인지?
     public bool hasItem = false; //손에 아이템이 있는지?
     public bool isAimming = false;
-
     private Slider uiHp;
     Animator animator;
 
@@ -28,6 +35,8 @@ public class Player : MonoBehaviour
         uiHp = playerStatusUI.transform.GetChild(0).GetComponent<Slider>();
         Hand = GameObject.FindGameObjectWithTag("Hand");
         animator = GetComponentInChildren<Animator>();
+        uptime = 0;
+        downtime = 0;
     }
 
     // Update is called once per frame
@@ -36,35 +45,17 @@ public class Player : MonoBehaviour
         uiHp.value = HP;
         // 점프
         Jump();
- 
-        //이동 및 회전
-        if (Input.GetKey(KeyCode.W))
-        {
-            this.transform.Translate(Vector3.forward * 4.0f * Time.deltaTime);
-            animator.SetBool("isRunning", true);
-        }
-      
 
-        if (Input.GetKey(KeyCode.S))
-        {
-            this.transform.Translate(Vector3.back * 4.0f * Time.deltaTime);
-            animator.SetBool("isRunning", true);
-        }
+        //이동
+        Move();
 
-        if (Input.GetKey(KeyCode.A))
+        //체력+10 아이템
+        if(hpup == true && isItem == true)
         {
-            this.transform.Translate(Vector3.left * 4.0f * Time.deltaTime);
-            animator.SetBool("isRunning", true);
+            HP += 0.1f;
+            hpup = false;
+            isItem = false;
         }
-      
-
-        if (Input.GetKey(KeyCode.D))
-        {
-            this.transform.Translate(Vector3.right * 4.0f * Time.deltaTime);
-            animator.SetBool("isRunning", true);
-        }
-
-        if(Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.S) || Input.GetKeyUp(KeyCode.A)||Input.GetKeyUp(KeyCode.D)) animator.SetBool("isRunning", false);
 
 
         if (Input.GetMouseButtonDown(0))
@@ -102,6 +93,130 @@ public class Player : MonoBehaviour
             GetComponent<Rigidbody>().velocity = new Vector3(0, jumpPower, 0);
             isJump = true;
             animator.SetTrigger("Jump");
+
+        }
+    }
+
+    void Move()
+    {
+        //스피드 업 아이템 획득시
+        if (speedup == true && isItem == true)
+        {
+            uptime += Time.deltaTime;
+            speed = 10.0f;
+
+            //이동 및 회전
+            if (Input.GetKey(KeyCode.W))
+            {
+                this.transform.Translate(Vector3.forward * speed * Time.deltaTime);
+                animator.SetBool("isRunning", true);
+            }
+
+
+            if (Input.GetKey(KeyCode.S))
+            {
+                this.transform.Translate(Vector3.back * speed * Time.deltaTime);
+                animator.SetBool("isRunning", true);
+            }
+
+            if (Input.GetKey(KeyCode.A))
+            {
+                this.transform.Translate(Vector3.left * speed * Time.deltaTime);
+                animator.SetBool("isRunning", true);
+            }
+
+
+            if (Input.GetKey(KeyCode.D))
+            {
+                this.transform.Translate(Vector3.right * speed * Time.deltaTime);
+                animator.SetBool("isRunning", true);
+            }
+
+            if (Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.S) || Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.D)) animator.SetBool("isRunning", false);
+
+            if (uptime > 3f)
+            {
+                speedup = false;
+                speed = 4.0f;
+                isItem = false;
+                uptime = 0;
+            }
+        }
+        // 스피드 다운 아이템 적용시
+        else if (speeddown == true && isItem == true)
+        {
+            downtime += Time.deltaTime;
+            speed = 2.0f;
+
+            //이동 및 회전
+            if (Input.GetKey(KeyCode.W))
+            {
+                this.transform.Translate(Vector3.forward * speed * Time.deltaTime);
+                animator.SetBool("isRunning", true);
+            }
+
+
+            if (Input.GetKey(KeyCode.S))
+            {
+                this.transform.Translate(Vector3.back * speed * Time.deltaTime);
+                animator.SetBool("isRunning", true);
+            }
+
+            if (Input.GetKey(KeyCode.A))
+            {
+                this.transform.Translate(Vector3.left * speed * Time.deltaTime);
+                animator.SetBool("isRunning", true);
+            }
+
+
+            if (Input.GetKey(KeyCode.D))
+            {
+                this.transform.Translate(Vector3.right * speed * Time.deltaTime);
+                animator.SetBool("isRunning", true);
+            }
+
+            if (Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.S) || Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.D)) animator.SetBool("isRunning", false);
+
+            if (downtime > 3f)
+            {
+                speeddown = false;
+                speed = 4.0f;
+                isItem = false;
+                downtime = 0;
+            }
+        }
+
+        // 평상시 이동 및 회전
+        else
+        {
+            
+            if (Input.GetKey(KeyCode.W))
+            {
+                this.transform.Translate(Vector3.forward * speed * Time.deltaTime);
+                animator.SetBool("isRunning", true);
+            }
+
+
+            if (Input.GetKey(KeyCode.S))
+            {
+                this.transform.Translate(Vector3.back * speed * Time.deltaTime);
+                animator.SetBool("isRunning", true);
+            }
+
+            if (Input.GetKey(KeyCode.A))
+            {
+                this.transform.Translate(Vector3.left * speed * Time.deltaTime);
+                animator.SetBool("isRunning", true);
+            }
+
+
+            if (Input.GetKey(KeyCode.D))
+            {
+                this.transform.Translate(Vector3.right * speed * Time.deltaTime);
+                animator.SetBool("isRunning", true);
+            }
+
+            if (Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.S) || Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.D)) animator.SetBool("isRunning", false);
 
         }
     }
@@ -182,5 +297,28 @@ public class Player : MonoBehaviour
             isJump = false;
         }
 
+        //스피드업 아이템
+        if(collision.transform.tag == "speedUP" && isItem == false)
+        {
+            collision.gameObject.SetActive(false);
+            isItem = true;
+            speedup = true;
+        }
+
+        //스피드다운 아이템
+        if (collision.transform.tag == "speedDown" && isItem == false)
+        {
+            collision.gameObject.SetActive(false);
+            isItem = true;
+            speeddown = true;
+        }
+
+        //체력 +10 아이템
+        if (collision.transform.tag == "HpUp" && isItem == false)
+        {
+            collision.gameObject.SetActive(false);
+            isItem = true;
+            hpup = true;
+        }
     }
 }

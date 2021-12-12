@@ -23079,6 +23079,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d47995aeb01477b4e86ab93813c44db3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isItem: 0
+  speedup: 0
+  speeddown: 0
+  hpup: 0
   playerStatusUI: {fileID: 0}
   jumpPower: 7
   isJump: 0
@@ -32128,6 +32132,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d47995aeb01477b4e86ab93813c44db3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isItem: 0
+  speedup: 0
+  speeddown: 0
+  hpup: 0
   playerStatusUI: {fileID: 2131894669}
   jumpPower: 5
   isJump: 0
