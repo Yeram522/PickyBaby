@@ -18,6 +18,7 @@ public class CarrotAutoSpawner : MonoBehaviour
         GameObject obj = Instantiate(carrot, transform.position, transform.rotation);
         obj.transform.localScale = Vector3.one;
         obj.transform.SetParent(this.transform);
+
         trigger = true;
         yield return null;
     }
