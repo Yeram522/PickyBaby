@@ -21,7 +21,6 @@ public class item : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player");
         hand = GameObject.FindGameObjectWithTag("Hand");
-
         Player_s = player.GetComponent<Player>();
 
     }
@@ -29,26 +28,26 @@ public class item : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
         if (Input.GetKey(KeyCode.LeftShift) && getitem == true)
         {
-            Debug.Log("aa");
-            transform.SetParent(hand.transform);
-            this.transform.localPosition = Vector3.one;
+            transform.parent.SetParent(hand.transform);
+            this.transform.parent.localPosition = Vector3.one;
             
             transform.rotation = new Quaternion(0, 0, 0, 0);
 
-            Player_s.pickItem(gameObject);
-          //  StartCoroutine(Player_s.pickIt(gameObject));
+            Player_s.pickItem(this.gameObject);
             getitem = false;
         }
 
     }
 
-  
+    IEnumerator waitTime(float time)
+    {
+        yield return new WaitForSeconds(time);
+    }
+
     void OnCollisionEnter(Collision collision)
     {
-        Debug.Log(collision.transform.tag);
         //아이템 접촉 확인
         if (collision.transform.tag == "Player")
         {

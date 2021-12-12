@@ -25,7 +25,6 @@ public class carrotBomb : MonoBehaviour
 
     IEnumerator expendedBomb()//사방으로 같이 터지는 경우
     {
-       
         power.SetActive(true);
         GameObject bmbFx = Instantiate(bombFX, this.transform.position, this.transform.rotation);
         GameObject[] powers = new GameObject[power.transform.childCount];
@@ -67,7 +66,6 @@ public class carrotBomb : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-
         collisionObj = collision.gameObject;
         if (collision.collider.transform.CompareTag("Player"))
             _isexpend = false;

@@ -1,10 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class EnemyBehavior : MonoBehaviour
 {
+    public bool isVariable;//여러 아이템을 스폰하는가?
+
     public GameObject spawnItem = null;
+    public GameObject[] spawnItems = new GameObject[3];//외부에서 개수 정하기
     public GameObject destroyFx = null;
     public Animator animator = null;
 
@@ -14,6 +18,9 @@ public class EnemyBehavior : MonoBehaviour
     void Start()
     {
         InvokeRepeating("UpdateTarget", 0.0f, 0.25f);
+        if (SceneManager.GetActiveScene().name != "main02") return;
+        Debug.Log("isVariable = true");
+        isVariable = true;///main02 일 경우에는 variable 타입으로 바꿔준다.
     }
 
     private void UpdateTarget()
@@ -35,7 +42,7 @@ public class EnemyBehavior : MonoBehaviour
 
     void Update()
     {
-        if(target != null)
+        if (target != null)
         {
             Vector3 dir = target.position - transform.position;
             transform.Translate(dir.normalized * -enemyMoveSpeed * Time.deltaTime);
@@ -59,12 +66,34 @@ public class EnemyBehavior : MonoBehaviour
             GameObject fx =Instantiate(destroyFx, this.transform.position, this.transform.rotation);
             Destroy(fx, 1.0f);
 
-            if (Random.Range(0, 2) == 1)
-            {
-                GameObject item = Instantiate(spawnItem,
-                  new Vector3(this.transform.position.x, this.transform.position.y + 1.0f, this.transform.position.z), this.transform.rotation);
-            }
+            if (isVariable) spawnItemMultiple();
+            else spawnItemSingle();
+
             Destroy(this.gameObject,0.2f);
         }
+    }
+
+    private void spawnItemSingle()//50%확률로 단일
+    {
+        if (Random.Range(0, 2) == 1)
+        {
+            GameObject item = Instantiate(spawnItem,
+              new Vector3(this.transform.position.x, this.transform.position.y + 1.0f, this.transform.position.z), this.transform.rotation);
+        }
+    }
+
+    private void spawnItemMultiple()
+    {
+        
+        int rnd = (Random.Range(0, 3));
+        if (spawnItems[rnd] == null)
+        {
+            Debug.Log("spawn vairable Null");
+            return;
+        }
+        Debug.Log("spawn vairable "+rnd);
+        GameObject item = Instantiate(spawnItems[rnd],
+              new Vector3(this.transform.position.x, this.transform.position.y + 1.0f, this.transform.position.z), this.transform.rotation);
+
     }
 }

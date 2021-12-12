@@ -40,7 +40,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3734352615385304613}
-  - component: {fileID: 76725089284345789}
+  - component: {fileID: 7254214605212723721}
   m_Layer: 7
   m_Name: mixamorig:Head
   m_TagString: Untagged
@@ -63,7 +63,7 @@ Transform:
   m_Father: {fileID: 4060359924132554591}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!135 &76725089284345789
+--- !u!135 &7254214605212723721
 SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -74,7 +74,7 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.3
+  m_Radius: 0.25
   m_Center: {x: 0, y: 0.1, z: 0.1}
 --- !u!1 &750189653683270412
 GameObject:
@@ -284,6 +284,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6529864077135028960}
   - component: {fileID: 646864496913276310}
+  - component: {fileID: 416404451492080870}
   m_Layer: 7
   m_Name: Cube.001
   m_TagString: Enemy
@@ -385,6 +386,20 @@ SkinnedMeshRenderer:
     m_Center: {x: -0.055078924, y: 0.05765775, z: 0.16534364}
     m_Extent: {x: 0.643954, y: 1.0158353, z: 0.503094}
   m_DirtyAABB: 0
+--- !u!64 &416404451492080870
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1937477921517648733}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4493585093827132993, guid: d8c705f456248cb428ce8e561f7db834, type: 3}
 --- !u!1 &2242510089906362186
 GameObject:
   m_ObjectHideFlags: 0
@@ -1067,7 +1082,7 @@ CapsuleCollider:
   m_Radius: 0.8095032
   m_Height: 2.237856
   m_Direction: 1
-  m_Center: {x: -0.2109612, y: 0.118927054, z: 0.10044306}
+  m_Center: {x: -0.2109612, y: 0.4, z: 0.10044306}
 --- !u!114 &8720543519340903034
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1183,7 +1198,7 @@ Transform:
   m_GameObject: {fileID: 7867857808715359559}
   m_LocalRotation: {x: -0.004178747, y: 0.48696825, z: -0.03586008, w: 0.8726732}
   m_LocalPosition: {x: -0.016729034, y: 0.7825106, z: -0.0086421985}
-  m_LocalScale: {x: 1.4, y: 1.4, z: 1.4}
+  m_LocalScale: {x: 1.6, y: 1.6, z: 1.6}
   m_Children:
   - {fileID: 4733659829467071822}
   - {fileID: 1399005465177705229}
@@ -1258,7 +1273,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 567020a64fb862c40bb4765dafda9c50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isVariable: 0
   spawnItem: {fileID: 988770781164349650, guid: 605d943ae560d324cbe74a6f16765c73, type: 3}
+  spawnItems:
+  - {fileID: 988770781164349650, guid: 605d943ae560d324cbe74a6f16765c73, type: 3}
+  - {fileID: 100000, guid: 8db774d63ffa4304fb8dddd6116ead54, type: 3}
+  - {fileID: 4657612057595838661, guid: c5caf247fdabd914f979e98ab1405a52, type: 3}
   destroyFx: {fileID: 100018, guid: a40b64bf23366dc42a892af2c6ff6140, type: 3}
   animator: {fileID: 3701866296425531100}
 --- !u!54 &7995111654526469662
