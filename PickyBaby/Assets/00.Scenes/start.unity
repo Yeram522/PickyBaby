@@ -527,10 +527,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uC774\uB3D9\n(spcae: \uB6F0\uAE30 )\n(E: \uC2A4\uD0AC \uC0AC\uC6A9)\n(shift/ctrl
-    : \uC90D\uAE30/\uB358\uC9C0\uAE30)"
+  m_text: "\uC774\uB3D9\n(spcae: \uB6F0\uAE30 )\n(shift/ctrl : \uC90D\uAE30/\uB358\uC9C0\uAE30)"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 6685edd5f50d7cd42bc53d5de07c393a, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 305562d06e1c150449347be0d5e6087e, type: 2}
   m_sharedMaterial: {fileID: 4050841997205960069, guid: 6685edd5f50d7cd42bc53d5de07c393a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -594,7 +593,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: -56.348267, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &178430162
