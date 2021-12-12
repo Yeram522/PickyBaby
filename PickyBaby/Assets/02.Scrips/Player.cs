@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -319,6 +320,11 @@ public class Player : MonoBehaviour
             collision.gameObject.SetActive(false);
             isItem = true;
             hpup = true;
+        }
+
+        if(collision.transform.tag == "fall")
+        {
+            SceneManager.LoadScene("fail");
         }
     }
 }

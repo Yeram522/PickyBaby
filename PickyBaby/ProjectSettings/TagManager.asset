@@ -18,6 +18,7 @@ TagManager:
   - speedUP
   - speedDown
   - HpUp
+  - fall
   layers:
   - Default
   - TransparentFX
