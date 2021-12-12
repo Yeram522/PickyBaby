@@ -54,10 +54,6 @@ public class Player : MonoBehaviour
         uptime = 0;
         downtime = 0;
 
-        if(isShield == true)
-        {
-
-        }
     }
 
     // Update is called once per frame
@@ -85,6 +81,12 @@ public class Player : MonoBehaviour
             lifeBack = false;
         }
 
+        //방어막 3회
+        if(isShield == true)
+        {
+            this.gameObject.transform.GetChild(4).gameObject.SetActive(true);
+        }
+
         if (Input.GetMouseButtonDown(0))
         {
             this.transform.Rotate(0.0f, 30.0f, 0.0f);
@@ -97,12 +99,12 @@ public class Player : MonoBehaviour
             
         }
      
-
-        // 던지기
-        if (Input.GetKey(KeyCode.E) &&  hasItem )
+        // 던지기 및 줍기
+        if (Input.GetKey(KeyCode.LeftControl) &&  hasItem == true )
         {
             StartCoroutine(throwItem());
         }
+
     }
 
     IEnumerator throwItem()
@@ -170,7 +172,6 @@ public class Player : MonoBehaviour
                 this.transform.Translate(Vector3.left * speed * Time.deltaTime);
                 animator.SetBool("isRunning", true);
             }
-
 
             if (Input.GetKey(KeyCode.D))
             {
@@ -270,15 +271,8 @@ public class Player : MonoBehaviour
     public void pickItem(GameObject pick)
     {
         Setitem(pick, true);
+        animator.SetTrigger("Pick");
         hasItem = true;
-        animator.SetTrigger("Pick");
-    }
-
-    public IEnumerator pickIt(GameObject pick)
-    {
-        animator.SetTrigger("Pick");
-        yield return new WaitForSeconds(5.0f);
-        pickItem(pick);
     }
 
 
@@ -293,8 +287,9 @@ public class Player : MonoBehaviour
          */
         pick = Hand.GetComponentInChildren<Rigidbody>().gameObject;
         Rigidbody pick_rigidbody = pick.GetComponent<Rigidbody> ();
-        
+
         Setitem(pick, false);
+        
         Hand.transform.DetachChildren();
 
         Ray ray = new Ray(transform.position, transform.forward); //ray 캐릭터가 바라보는 방향으로 쏘기
@@ -316,14 +311,13 @@ public class Player : MonoBehaviour
     
         throwAngle.y = 5f; //포물선으로 날아갈때 위로 뜨는 각도
         pick_rigidbody.AddForce(throwAngle * 1, ForceMode.Impulse);
-
+        
         hasItem = false;
-
+        
     }
 
     void Setitem(GameObject pick, bool getitem)
     {
-        Debug.Log(!getitem);
         Collider[] pickColliders = pick.GetComponents<Collider>();
         Rigidbody pickRigidbody = pick.GetComponent<Rigidbody>();
 
@@ -333,7 +327,7 @@ public class Player : MonoBehaviour
         }
 
         pickRigidbody.isKinematic = getitem;
-    }
+    } 
 
     private void OnCollisionEnter(Collision collision)
     {
@@ -372,7 +366,26 @@ public class Player : MonoBehaviour
             SceneManager.LoadScene("fail");
         }
     }
+
+
+
+    public void ClickJump()
+    {
+        doublejump = true;
+    }
+    public void ClickAngle()
+    {
+        lifeBack = true;
+    }
+
+    public void ClickShield()
+    {
+        isShield = true;
+    }
+
 }
+
+
 
 //쉴드 적용하면 콜라이더 바깥에 생김. 
 //그거 3번 충돌하고 나면 사라짐.
