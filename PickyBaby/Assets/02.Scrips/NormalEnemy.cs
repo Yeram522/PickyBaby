@@ -4,12 +4,20 @@ using UnityEngine;
 
 public class NormalEnemy : MonoBehaviour
 {
+    public Getshield getshield;
+
 
     private void OnCollisionEnter(Collision collision)
     {
         if(collision.collider.CompareTag("Player"))
         {
             Debug.Log("플레이어와 곰돌이 충돌");
+            if (getshield.Shield > 0)
+            {
+                return;
+            }
+                  
+
             collision.gameObject.GetComponent<Player>().HP -= 0.05f;
         }
     }

@@ -19,6 +19,7 @@ TagManager:
   - speedDown
   - HpUp
   - fall
+  - shield
   layers:
   - Default
   - TransparentFX
@@ -31,7 +32,7 @@ TagManager:
   - Item
   - noAccess
   - Player
-  - 
+  - shield
   - 
   - 
   - 
