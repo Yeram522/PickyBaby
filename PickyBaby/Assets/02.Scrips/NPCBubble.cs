@@ -9,7 +9,7 @@ public class NPCBubble : MonoBehaviour
     private bool isCharge;
     private GameObject player;
     private GameObject unactivePanel;
-
+    
     private void Start()
     {
         unactivePanel = panel.transform.GetChild(0).GetChild(1).gameObject;
@@ -23,6 +23,7 @@ public class NPCBubble : MonoBehaviour
             panel.transform.GetChild(0).GetChild(1).gameObject.SetActive(true);
             panel.transform.GetChild(1).gameObject.SetActive(false);
             unactivePanel = panel.transform.GetChild(0).GetChild(0).gameObject;
+
             //player.GetComponent<Player>().hp = 100;
             isCharge = true;
         }
