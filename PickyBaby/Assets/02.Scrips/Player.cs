@@ -337,33 +337,38 @@ public class Player : MonoBehaviour
             isJump = false;
         }
 
-        //스피드업 아이템
-        if(collision.transform.tag == "speedUP" && isItem == false)
+       
+
+        if(collision.transform.tag == "fall")
         {
-            collision.gameObject.SetActive(false);
+            SceneManager.LoadScene("fail");
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        //스피드업 아이템
+        if (other.tag == "speedUP" && isItem == false)
+        {
+            other.gameObject.SetActive(false);
             isItem = true;
             speedup = true;
         }
 
         //스피드다운 아이템
-        if (collision.transform.tag == "speedDown" && isItem == false)
+        if (other.tag == "speedDown" && isItem == false)
         {
-            collision.gameObject.SetActive(false);
+            other.gameObject.SetActive(false);
             isItem = true;
             speeddown = true;
         }
 
         //체력 +10 아이템
-        if (collision.transform.tag == "HpUp" && isItem == false)
+        if (other.tag == "HpUp" && isItem == false)
         {
-            collision.gameObject.SetActive(false);
+            other.gameObject.SetActive(false);
             isItem = true;
             hpup = true;
-        }
-
-        if(collision.transform.tag == "fall")
-        {
-            SceneManager.LoadScene("fail");
         }
     }
 

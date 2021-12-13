@@ -56,7 +56,11 @@ public class map2UImanager : MonoBehaviour
             for (int i = 1; i < obj.Length; i++)
             {
                 Color txtcolor = obj[i].GetComponent<Text>().color;
-                if (txtcolor.a == 0.0f) break;
+                if (txtcolor.a <= 0.0f)
+                {
+                    obj[0].transform.gameObject.SetActive(false);
+                    break;
+                }
                 txtcolor.a -= 0.1f;
                 obj[i].GetComponent<Text>().color = txtcolor;
             }

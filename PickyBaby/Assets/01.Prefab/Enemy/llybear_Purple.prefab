@@ -325,7 +325,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: eb06936e9ff774642b85927427d17fef, type: 2}
+  - {fileID: 2100000, guid: a851290e6c037a84fa39eea1c50aff2d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1220,7 +1220,7 @@ GameObject:
   - component: {fileID: 7995111654526469661}
   - component: {fileID: 7995111654526469662}
   m_Layer: 7
-  m_Name: jellybear_Blue
+  m_Name: llybear_Purple
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1280,6 +1280,7 @@ MonoBehaviour:
   - {fileID: 6284135185136867020, guid: 8ec057b79dcee8f42bf7259c609ea09a, type: 3}
   - {fileID: 3596011066933325499, guid: 66929f8811c63b849947b77be5e0990d, type: 3}
   - {fileID: 696478364826099764, guid: 3187617a71ae007498e1505fb7c2afb3, type: 3}
+  - {fileID: 4657612057595838661, guid: c5caf247fdabd914f979e98ab1405a52, type: 3}
   destroyFx: {fileID: 100018, guid: a40b64bf23366dc42a892af2c6ff6140, type: 3}
   animator: {fileID: 3701866296425531100}
 --- !u!54 &7995111654526469662
