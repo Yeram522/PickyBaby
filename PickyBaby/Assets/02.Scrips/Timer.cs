@@ -20,7 +20,7 @@ public class Timer : MonoBehaviour
         {
             time -= Time.deltaTime;
             currentTime = (int)time;
-            timerText.text = "남은시간 : " + currentTime;
+            timerText.text = "남은시간 : " + currentTime + "s";
         }
 
         if (time <= 0)

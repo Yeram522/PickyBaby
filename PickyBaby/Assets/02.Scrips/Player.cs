@@ -67,7 +67,7 @@ public class Player : MonoBehaviour
         uiHp.value = HP;
 
         //0ÀÌ¸י fail
-        if (HP <= 0)
+        if (HP <= 0 && lifeBack == false)
         {
             SceneManager.LoadScene("fail");
         }
