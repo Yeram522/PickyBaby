@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class BossBehavior : MonoBehaviour
 {
@@ -38,12 +39,11 @@ public class BossBehavior : MonoBehaviour
     private void Update()
     {
         uiHp.value = Hp;
+
+        if (Hp <= 0) SceneManager.LoadScene("win");
+
         this.transform.localPosition = new Vector3(0,0,0);
         this.transform.localRotation = Quaternion.Euler(new Vector3(0, -110, 0));
-        if (Input.GetKeyDown(KeyCode.L))
-        {
-            
-        }
      
     }
 

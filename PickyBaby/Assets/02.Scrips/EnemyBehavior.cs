@@ -14,7 +14,6 @@ public class EnemyBehavior : MonoBehaviour
 
     private Transform target = null;
     private float enemyMoveSpeed = 1.5f;
-    
     void Start()
     {
         InvokeRepeating("UpdateTarget", 0.0f, 0.25f);
@@ -42,6 +41,7 @@ public class EnemyBehavior : MonoBehaviour
 
     void Update()
     {
+        
         if (target != null)
         {
             Vector3 dir = target.position - transform.position;
@@ -85,7 +85,7 @@ public class EnemyBehavior : MonoBehaviour
     private void spawnItemMultiple()
     {
         
-        int rnd = (Random.Range(0, 3));
+        int rnd = (Random.Range(0, 4));
         if (spawnItems[rnd] == null)
         {
             Debug.Log("spawn vairable Null");
@@ -93,7 +93,8 @@ public class EnemyBehavior : MonoBehaviour
         }
         Debug.Log("spawn vairable "+rnd);
         GameObject item = Instantiate(spawnItems[rnd],
-              new Vector3(this.transform.position.x, this.transform.position.y + 1.0f, this.transform.position.z), this.transform.rotation);
+              new Vector3(this.transform.position.x, this.transform.position.y + 0.5f, this.transform.position.z), this.transform.rotation);
+        Destroy(item, 10.0f);
 
     }
 }

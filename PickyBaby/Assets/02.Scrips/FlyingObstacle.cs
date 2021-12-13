@@ -17,7 +17,7 @@ public class FlyingObstacle : MonoBehaviour
 
     public void setObstacleInfo(Transform _endpos)//생성오브젝트가 포탄의 도달위치정보를 세팅해준다.
     {
-        Debug.Log("setObstacleInfo");
+       
         startpos = this.transform;
         endpos = _endpos;
         

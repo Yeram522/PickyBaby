@@ -11,11 +11,6 @@ public class item : MonoBehaviour
     Player Player_s;
     public bool getitem = false;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
 
     void Awake()
     {
@@ -31,7 +26,9 @@ public class item : MonoBehaviour
         if (Input.GetKey(KeyCode.LeftShift) && getitem == true)
         {
             transform.parent.SetParent(hand.transform);
-            this.transform.parent.localPosition = Vector3.one;
+            this.transform.parent.localPosition = Vector3.zero;
+            this.transform.localPosition = Vector3.zero;
+            
             
             transform.rotation = new Quaternion(0, 0, 0, 0);
 

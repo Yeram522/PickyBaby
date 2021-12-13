@@ -46,8 +46,13 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //playerStatusUI = this.transform.Find("PlayerHP").gameObject;
-        HP = 1.0f;
+
+        if (SceneManager.GetActiveScene().name == "main02")
+        {
+            var obj = FindObjectOfType<DonDestroyObject>();
+            HP = obj.GetComponent<DonDestroyObject>().PlayerHp;
+        }
+
         uiHp = playerStatusUI.transform.GetChild(0).GetComponent<Slider>();
         Hand = GameObject.FindGameObjectWithTag("Hand");
         animator = GetComponentInChildren<Animator>();
@@ -60,6 +65,20 @@ public class Player : MonoBehaviour
     void Update()
     {
         uiHp.value = HP;
+
+        //0이면 fail
+        if (HP <= 0 && lifeBack == false)
+        {
+            if (SceneManager.GetActiveScene().name == "main01")
+            {
+                SceneManager.LoadScene("fail");
+            }
+            if (SceneManager.GetActiveScene().name == "main02")
+            {
+                SceneManager.LoadScene("fail1");
+            }
+        }
+
         // 점프
         Jump();
 
@@ -100,7 +119,7 @@ public class Player : MonoBehaviour
         }
      
         // 던지기 및 줍기
-        if (Input.GetKey(KeyCode.LeftControl) &&  hasItem == true )
+        if (Input.GetKeyDown(KeyCode.LeftControl) &&  hasItem == true )
         {
             StartCoroutine(throwItem());
         }
@@ -313,7 +332,7 @@ public class Player : MonoBehaviour
         pick_rigidbody.AddForce(throwAngle * 1, ForceMode.Impulse);
         
         hasItem = false;
-        
+        animator.SetTrigger("throw");
     }
 
     void Setitem(GameObject pick, bool getitem)
@@ -337,36 +356,48 @@ public class Player : MonoBehaviour
             isJump = false;
         }
 
-        //스피드업 아이템
-        if(collision.transform.tag == "speedUP" && isItem == false)
+       
+
+        if(collision.transform.tag == "fall")
         {
-            collision.gameObject.SetActive(false);
+            if (SceneManager.GetActiveScene().name == "main01")
+            {
+                SceneManager.LoadScene("fail");
+            }
+            if (SceneManager.GetActiveScene().name == "main02")
+            {
+                SceneManager.LoadScene("fail1");
+            }
+            
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        //스피드업 아이템
+        if (other.tag == "speedUP" && isItem == false)
+        {
+            other.gameObject.SetActive(false);
             isItem = true;
             speedup = true;
         }
 
         //스피드다운 아이템
-        if (collision.transform.tag == "speedDown" && isItem == false)
+        if (other.tag == "speedDown" && isItem == false)
         {
-            collision.gameObject.SetActive(false);
+            other.gameObject.SetActive(false);
             isItem = true;
             speeddown = true;
         }
 
         //체력 +10 아이템
-        if (collision.transform.tag == "HpUp" && isItem == false)
+        if (other.tag == "HpUp" && isItem == false)
         {
-            collision.gameObject.SetActive(false);
+            other.gameObject.SetActive(false);
             isItem = true;
             hpup = true;
         }
-
-        if(collision.transform.tag == "fall")
-        {
-            SceneManager.LoadScene("fail");
-        }
     }
-
 
 
     public void ClickJump()
@@ -384,8 +415,3 @@ public class Player : MonoBehaviour
     }
 
 }
-
-
-
-//쉴드 적용하면 콜라이더 바깥에 생김. 
-//그거 3번 충돌하고 나면 사라짐.

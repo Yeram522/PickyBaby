@@ -10,7 +10,7 @@ public class NormalEnemy : MonoBehaviour
     {
         if(collision.collider.CompareTag("Player") && !collision.gameObject.CompareTag("shield"))
         {
-            Debug.Log("플레이어와 곰돌이 충돌");
+           
             if(collision.collider.GetComponent<Player>().isShield)
             {
                 getshield = collision.collider.transform.GetChild(4).gameObject.GetComponent<Getshield>();

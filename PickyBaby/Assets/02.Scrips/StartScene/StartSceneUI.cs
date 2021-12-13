@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class StartSceneUI : MonoBehaviour
 {
@@ -48,5 +49,10 @@ public class StartSceneUI : MonoBehaviour
         currentPg++;
         if (currentPg == 4) currentPg = 0;
         pages[currentPg].SetActive(true);
+    }
+
+    public void goMain01()
+    {
+        SceneManager.LoadScene("main01");
     }
 }
