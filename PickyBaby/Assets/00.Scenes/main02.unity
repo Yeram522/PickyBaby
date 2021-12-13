@@ -33355,7 +33355,7 @@ MonoBehaviour:
   lifeBack: 0
   isShield: 0
   playerStatusUI: {fileID: 2851114308877567337}
-  HP: 0
+  HP: 1
   jumpPower: 6.5
   isJump: 0
   power: 10
