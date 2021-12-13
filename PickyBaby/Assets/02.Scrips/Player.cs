@@ -368,7 +368,6 @@ public class Player : MonoBehaviour
     }
 
 
-
     public void ClickJump()
     {
         doublejump = true;
@@ -384,8 +383,3 @@ public class Player : MonoBehaviour
     }
 
 }
-
-
-
-//쉴드 적용하면 콜라이더 바깥에 생김. 
-//그거 3번 충돌하고 나면 사라짐.
