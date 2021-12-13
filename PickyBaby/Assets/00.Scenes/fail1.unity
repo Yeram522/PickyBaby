@@ -704,7 +704,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 279761701}
         m_TargetAssemblyTypeName: GoTitle, Assembly-CSharp
-        m_MethodName: Gomain1
+        m_MethodName: Gomain2
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

@@ -40,7 +40,7 @@ public class BossBehavior : MonoBehaviour
     {
         uiHp.value = Hp;
 
-        if (Hp <= 0) SceneManager.LoadScene("fail");
+        if (Hp <= 0) SceneManager.LoadScene("win");
 
         this.transform.localPosition = new Vector3(0,0,0);
         this.transform.localRotation = Quaternion.Euler(new Vector3(0, -110, 0));

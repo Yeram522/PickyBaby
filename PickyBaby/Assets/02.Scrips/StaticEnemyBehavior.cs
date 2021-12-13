@@ -25,7 +25,7 @@ public class StaticEnemyBehavior : MonoBehaviour
 
     private void Update()
     {
-        if (count == 3)
+        if (count == 2)
             StopAllCoroutines();
     }
 

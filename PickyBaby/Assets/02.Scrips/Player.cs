@@ -69,7 +69,14 @@ public class Player : MonoBehaviour
         //0이면 fail
         if (HP <= 0 && lifeBack == false)
         {
-            SceneManager.LoadScene("fail");
+            if (SceneManager.GetActiveScene().name == "main01")
+            {
+                SceneManager.LoadScene("fail");
+            }
+            if (SceneManager.GetActiveScene().name == "main02")
+            {
+                SceneManager.LoadScene("fail1");
+            }
         }
 
         // 점프
@@ -112,7 +119,7 @@ public class Player : MonoBehaviour
         }
      
         // 던지기 및 줍기
-        if (Input.GetKey(KeyCode.LeftControl) &&  hasItem == true )
+        if (Input.GetKeyDown(KeyCode.LeftControl) &&  hasItem == true )
         {
             StartCoroutine(throwItem());
         }
@@ -325,7 +332,7 @@ public class Player : MonoBehaviour
         pick_rigidbody.AddForce(throwAngle * 1, ForceMode.Impulse);
         
         hasItem = false;
-        
+        animator.SetTrigger("throw");
     }
 
     void Setitem(GameObject pick, bool getitem)
@@ -353,7 +360,15 @@ public class Player : MonoBehaviour
 
         if(collision.transform.tag == "fall")
         {
-            SceneManager.LoadScene("fail");
+            if (SceneManager.GetActiveScene().name == "main01")
+            {
+                SceneManager.LoadScene("fail");
+            }
+            if (SceneManager.GetActiveScene().name == "main02")
+            {
+                SceneManager.LoadScene("fail1");
+            }
+            
         }
     }
 

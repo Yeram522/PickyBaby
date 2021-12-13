@@ -94,6 +94,7 @@ public class EnemyBehavior : MonoBehaviour
         Debug.Log("spawn vairable "+rnd);
         GameObject item = Instantiate(spawnItems[rnd],
               new Vector3(this.transform.position.x, this.transform.position.y + 0.5f, this.transform.position.z), this.transform.rotation);
+        Destroy(item, 10.0f);
 
     }
 }

@@ -11,11 +11,6 @@ public class item : MonoBehaviour
     Player Player_s;
     public bool getitem = false;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
 
     void Awake()
     {

@@ -24,7 +24,7 @@ public class stage01Manager : MonoBehaviour
     {
         for(int i = 0; i<bombers.Length;i++)
         {
-            if (bombers[i].GetComponent<StaticEnemyBehavior>().count != 3) return false;
+            if (bombers[i].GetComponent<StaticEnemyBehavior>().count != 2) return false;
         }
         return true;
     }

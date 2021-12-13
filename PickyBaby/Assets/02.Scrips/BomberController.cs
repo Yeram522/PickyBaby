@@ -8,7 +8,7 @@ public class BomberController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (flowerMonster.GetComponent<StaticEnemyBehavior>().count == 3)
+        if (flowerMonster.GetComponent<StaticEnemyBehavior>().count == 2)
         {
             return;
         }

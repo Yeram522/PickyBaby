@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class Timer : MonoBehaviour
 {
     public Text timerText;
-    private float time = 180;
+    private float time = 240;
     private int currentTime;
     public bool startTimer = false;
     void Start()

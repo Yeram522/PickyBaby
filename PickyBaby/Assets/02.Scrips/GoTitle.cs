@@ -31,4 +31,9 @@ public class GoTitle : MonoBehaviour
     {
         SceneManager.LoadScene("main01");
     }
+
+    public void Gomain2()
+    {
+        SceneManager.LoadScene("main02");
+    }
 }
