@@ -46,8 +46,12 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //playerStatusUI = this.transform.Find("PlayerHP").gameObject;
-        HP = 1.0f;
+
+        if (SceneManager.GetActiveScene().name == "main02")
+        {
+            var obj = FindObjectOfType<DonDestroyObject>();
+            HP = obj.GetComponent<DonDestroyObject>().PlayerHp;
+        }
         uiHp = playerStatusUI.transform.GetChild(0).GetComponent<Slider>();
         Hand = GameObject.FindGameObjectWithTag("Hand");
         animator = GetComponentInChildren<Animator>();
