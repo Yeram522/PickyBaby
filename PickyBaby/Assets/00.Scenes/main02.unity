@@ -35639,7 +35639,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   doublejump: 0
   lifeBack: 0
-  isShield: 1
+  isShield: 0
   playerStatusUI: {fileID: 2131894669}
   HP: 0
   jumpPower: 6.5
