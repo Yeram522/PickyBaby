@@ -22,20 +22,17 @@ public class GameManager : MonoBehaviour
     //Option Buttons Behavior
     public void exitBtn()
     {
-      // GameObject btn = GameObject.Find("IngameUI/Panel/exitBtn").gameObject;
-        //게임 종료
+        Application.Quit();
     }
 
     public void go2mainBtn()
     {
-       // GameObject btn = GameObject.Find("IngameUI/Panel/go2mainBtn").gameObject;
-        //go to main scene
+        SceneManager.LoadScene("start");
     }
 
     public void retryBtn()
     {
-       // GameObject btn = GameObject.Find("IngameUI/Panel/retryBtn").gameObject;
-        //go to main01 scene
+        SceneManager.LoadScene("main01");
     }
 
     public void closeTabBtn()
