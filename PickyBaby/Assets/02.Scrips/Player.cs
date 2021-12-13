@@ -47,11 +47,12 @@ public class Player : MonoBehaviour
     void Start()
     {
 
-        if (SceneManager.GetActiveScene().name == "main02")
+       /* if (SceneManager.GetActiveScene().name == "main02")
         {
             var obj = FindObjectOfType<DonDestroyObject>();
             HP = obj.GetComponent<DonDestroyObject>().PlayerHp;
         }
+       */
         uiHp = playerStatusUI.transform.GetChild(0).GetComponent<Slider>();
         Hand = GameObject.FindGameObjectWithTag("Hand");
         animator = GetComponentInChildren<Animator>();
@@ -63,7 +64,14 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        uiHp.value = HP;
+        //uiHp.value = HP;
+
+        //0이면 fail
+        /*if(HP <= 0)
+        {
+            SceneManager.LoadScene("fail");
+        }
+        */
         // 점프
         Jump();
 
