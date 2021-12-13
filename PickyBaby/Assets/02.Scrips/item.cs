@@ -30,8 +30,10 @@ public class item : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.LeftShift) && getitem == true)
         {
-            transform.SetParent(hand.transform);
-            this.transform.localPosition = Vector3.one;
+            transform.parent.SetParent(hand.transform);
+            this.transform.parent.localPosition = Vector3.zero;
+            this.transform.localPosition = Vector3.zero;
+            
             
             transform.rotation = new Quaternion(0, 0, 0, 0);
 
