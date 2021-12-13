@@ -14,7 +14,6 @@ public class EnemyBehavior : MonoBehaviour
 
     private Transform target = null;
     private float enemyMoveSpeed = 1.5f;
-    
     void Start()
     {
         InvokeRepeating("UpdateTarget", 0.0f, 0.25f);
@@ -42,6 +41,7 @@ public class EnemyBehavior : MonoBehaviour
 
     void Update()
     {
+        
         if (target != null)
         {
             Vector3 dir = target.position - transform.position;
