@@ -8,6 +8,8 @@ public class showBoard : MonoBehaviour
     public GameObject UImanager;
     private bool trigger;
 
+    //Audio
+    public AudioClip bossFieldSound;
     private void Start()
     {
         trigger = false;
@@ -20,8 +22,10 @@ public class showBoard : MonoBehaviour
             UImanager.GetComponent<map2UImanager>().showUIBoard2();
             trigger = true;
             StartCoroutine(showUpBoss());
-            
-            
+            AudioSource audio = other.transform.GetChild(0).GetComponent<AudioSource>();
+            audio.clip = bossFieldSound;
+            audio.Play();
+
         }
     }
 

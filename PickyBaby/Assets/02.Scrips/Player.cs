@@ -42,10 +42,17 @@ public class Player : MonoBehaviour
     public bool isAimming = false;
     Animator animator;
 
-    
-    // Start is called before the first frame update
+    //Audio
+    private AudioSource audio;
+    public AudioClip jumpsound;
+    public AudioClip throwsound;
+    public AudioClip damagedsound;
+    public AudioClip getItemsound;
+
     void Start()
     {
+        this.audio = this.gameObject.AddComponent<AudioSource>();      
+        this.audio.loop = false;
 
         if (SceneManager.GetActiveScene().name == "main02")
         {
@@ -64,6 +71,11 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(uiHp.value > HP)
+        {
+            this.audio.clip = this.damagedsound;
+            this.audio.Play();
+        }
         uiHp.value = HP;
 
         //0이면 fail
@@ -135,8 +147,9 @@ public class Player : MonoBehaviour
 
     void Jump()
     {
+        
         //더블 점프
-        if(doublejump == true)
+        if (doublejump == true)
         {
             if(jumppoint == 0)
             {
@@ -149,6 +162,8 @@ public class Player : MonoBehaviour
                 GetComponent<Rigidbody>().velocity = new Vector3(0, jumpPower, 0);
                 jumppoint -= 1;
                 animator.SetTrigger("Jump");
+                this.audio.clip = this.jumpsound;
+                this.audio.Play();
             }
         }
 
@@ -160,6 +175,8 @@ public class Player : MonoBehaviour
                 GetComponent<Rigidbody>().velocity = new Vector3(0, jumpPower, 0);
                 isJump = true;
                 animator.SetTrigger("Jump");
+                this.audio.clip = this.jumpsound;
+                this.audio.Play();
             }
         }
     }
@@ -297,13 +314,9 @@ public class Player : MonoBehaviour
 
     void dropItem()
     {
-        /*
-         pick = Hand.GetComponentInChildren<Rigidbody>().gameObject;
-         Setitem(pick, false);
+        this.audio.clip = this.throwsound;
+        this.audio.Play();
 
-         Hand.transform.DetachChildren();
-         hasItem = false;
-         */
         pick = Hand.GetComponentInChildren<Rigidbody>().gameObject;
         Rigidbody pick_rigidbody = pick.GetComponent<Rigidbody> ();
 
@@ -356,7 +369,6 @@ public class Player : MonoBehaviour
             isJump = false;
         }
 
-       
 
         if(collision.transform.tag == "fall")
         {
@@ -377,6 +389,8 @@ public class Player : MonoBehaviour
         //스피드업 아이템
         if (other.tag == "speedUP" && isItem == false)
         {
+            this.audio.clip = this.getItemsound;
+            this.audio.Play();
             other.gameObject.SetActive(false);
             isItem = true;
             speedup = true;
@@ -385,6 +399,8 @@ public class Player : MonoBehaviour
         //스피드다운 아이템
         if (other.tag == "speedDown" && isItem == false)
         {
+            this.audio.clip = this.getItemsound;
+            this.audio.Play();
             other.gameObject.SetActive(false);
             isItem = true;
             speeddown = true;
@@ -393,6 +409,8 @@ public class Player : MonoBehaviour
         //체력 +10 아이템
         if (other.tag == "HpUp" && isItem == false)
         {
+            this.audio.clip = this.getItemsound;
+            this.audio.Play();
             other.gameObject.SetActive(false);
             isItem = true;
             hpup = true;

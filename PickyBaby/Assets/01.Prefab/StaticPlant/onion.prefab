@@ -197,6 +197,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bombFx: {fileID: 1462327970484030, guid: 0d6e1ad3d44e9254faed4dee61b44e64, type: 3}
+  bombsecond: 1
+  bombsound: {fileID: 8300000, guid: 1e4125abad4eed04194dcb133476b62f, type: 3}
 --- !u!54 &7524330648657404114
 Rigidbody:
   m_ObjectHideFlags: 0
