@@ -80,3 +80,33 @@
   <img src="https://contrib.rocks/image?repo=Yeram522/PickyBaby" />
 </a>
 
+<table>
+    <tr height="160px">
+        <td align="center" width="150px">
+            <a href="https://github.com/Yeram522"><img height="120px" width="120px" src="https://avatars.githubusercontent.com/u/63442636?v=4"/></a>
+            <br />
+            <strong>예람</strong>
+        </td>
+        <td align="center" width="150px">
+            <a href="https://github.com/happy-jinsu"><img height="120px" width="120px" src="https://avatars.githubusercontent.com/u/68191793?v=4"/></a>
+            <br />
+            <strong>수진</strong>
+        </td>
+    </tr>
+    <tr height="50px">
+        <td align="center">
+            <a href="https://github.com/Yeram522">:octocat: GitHub</a>
+            <br />
+            <a href="https://odlram.tistory.com/">:✨ Blog</a>
+        </td>
+        <td align="center">
+            <a href="https://github.com/happy-jinsu">:octocat: GitHub</a>
+            <br />
+            <a href="https://happy2jinsu.tistory.com/">:✨ Blog</a>     
+    </tr>
+</table>
+
+
+
+
+
