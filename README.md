@@ -66,9 +66,9 @@
 
 ## 🐞 개발 과정
 
-💻`PullRequest`[](https://github.com/Yeram522/PickyBaby/pulls?q=is%3Apr+is%3Aclosed)
+💻[`PullRequest`](https://github.com/Yeram522/PickyBaby/pulls?q=is%3Apr+is%3Aclose)
 
-👀`History`[](https://github.com/Yeram522/PickyBaby/commits/main)
+👀[`History`](https://github.com/Yeram522/PickyBaby/commits/main)
 
 
 
