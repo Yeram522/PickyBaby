@@ -75,11 +75,6 @@
 
 
 ## 🙋‍♀️ CONTRIBUTORS 
-
-<a href="https://github.com/Yeram522/PickyBaby/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=Yeram522/PickyBaby" />
-</a>
-
 <table>
     <tr height="160px">
         <td align="center" width="150px">
