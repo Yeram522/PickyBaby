@@ -1406,6 +1406,7 @@ MonoBehaviour:
   - {fileID: 4657612057595838661, guid: c5caf247fdabd914f979e98ab1405a52, type: 3}
   destroyFx: {fileID: 100018, guid: a40b64bf23366dc42a892af2c6ff6140, type: 3}
   animator: {fileID: 6898063623777801027}
+  steppedsound: {fileID: 8300000, guid: 403b073e28505104d88ba0e1ef0faea9, type: 3}
 --- !u!54 &6898063623777801029
 Rigidbody:
   m_ObjectHideFlags: 0

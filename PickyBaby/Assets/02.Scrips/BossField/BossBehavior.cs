@@ -11,6 +11,7 @@ public class BossBehavior : MonoBehaviour
     public GameObject jbearPfb;//젤리곰 프리팹
     public GameObject firePfb;//불지르기 프리팹
     public GameObject carrotPfb;//당근폭탄 프리팹
+    public GameObject dieFx;//죽을 때 효과
 
     private Slider uiHp;
     [SerializeField]
@@ -19,6 +20,8 @@ public class BossBehavior : MonoBehaviour
     private GameObject[] attackzone = null;
     [SerializeField]
     private Animator animator = null;
+
+    private bool isClear = false;
     private void Start()
     {
         bossUI.transform.parent.gameObject.SetActive(true);//보스 체력 UI 활성화
@@ -40,13 +43,30 @@ public class BossBehavior : MonoBehaviour
     {
         uiHp.value = Hp;
 
-        if (Hp <= 0) SceneManager.LoadScene("win");
+        if (Hp <= 0 && !isClear)
+        {
+            StartCoroutine(bossDie());          
+        }
 
         this.transform.localPosition = new Vector3(0,0,0);
         this.transform.localRotation = Quaternion.Euler(new Vector3(0, -110, 0));
      
     }
 
+    IEnumerator bossDie()
+    {
+        isClear = true;
+        animator.SetTrigger("Die");
+        yield return new WaitForSeconds(1.0f);
+        GameObject fx = Instantiate(dieFx, transform.position, transform.rotation);
+        fx.transform.SetParent(this.transform);
+        fx.transform.localPosition = new Vector3(0, 3.0f, 0);
+        transform.GetChild(1).gameObject.SetActive(false);
+        yield return new WaitForSeconds(2.0f);
+        
+        SceneManager.LoadScene("win");
+        yield return null;
+    }
      IEnumerator isAttacable()//공격가능한 상태
     {
         while(Hp>0)//Boss의 HP가 0보다 크면 계속 공격이 가능하다.

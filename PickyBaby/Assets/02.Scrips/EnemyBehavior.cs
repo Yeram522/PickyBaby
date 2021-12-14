@@ -14,8 +14,16 @@ public class EnemyBehavior : MonoBehaviour
 
     private Transform target = null;
     private float enemyMoveSpeed = 1.5f;
+
+    //Audio
+    private AudioSource audio;
+    public AudioClip steppedsound;
     void Start()
     {
+        this.audio = this.gameObject.AddComponent<AudioSource>();
+        this.audio.clip = this.steppedsound;
+        this.audio.loop = false;
+
         InvokeRepeating("UpdateTarget", 0.0f, 0.25f);
         if (SceneManager.GetActiveScene().name != "main02") return;
         Debug.Log("isVariable = true");
@@ -64,11 +72,12 @@ public class EnemyBehavior : MonoBehaviour
         {
            // Debug.Log("EnemyDie");
             GameObject fx =Instantiate(destroyFx, this.transform.position, this.transform.rotation);
+            this.audio.Play();
             Destroy(fx, 1.0f);
 
             if (isVariable) spawnItemMultiple();
             else spawnItemSingle();
-
+            
             Destroy(this.gameObject,0.2f);
         }
     }

@@ -7,10 +7,20 @@ public class OnionBombFx : MonoBehaviour
     public GameObject bombFx;//소멸될때 효과
     public float bombsecond = 1.0f;
 
+    //Audio
+    private AudioSource audio;
+    public AudioClip bombsound;
+    private void Start()
+    {
+        this.audio = this.gameObject.AddComponent<AudioSource>();
+        this.audio.clip = this.bombsound;
+        this.audio.loop = false;
+    }
     public IEnumerator activeBombFx()
     {
         
         yield return new WaitForSeconds(bombsecond);
+        this.audio.Play();
         GameObject fx = Instantiate(bombFx, transform.position, transform.rotation);
         
         yield return new WaitForSeconds(0.2f);

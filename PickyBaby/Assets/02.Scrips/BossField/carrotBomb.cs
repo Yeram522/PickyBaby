@@ -17,8 +17,17 @@ public class carrotBomb : MonoBehaviour
     private bool _isexpend = true;
     private bool istrigger;
     private GameObject collisionObj;
+
+    //Audio
+    private AudioSource audio;
+    public AudioClip bombsound;
     void Start()
     {
+        this.audio = this.gameObject.AddComponent<AudioSource>();
+        this.audio.volume = 0.1f;
+        this.audio.clip = this.bombsound;
+        this.audio.loop = false;
+
         istrigger = false;
         Destroy(this.transform.parent.gameObject, 10.0f);//어떤 이유로 충돌받지 않으면 자동으로 소멸
     }
@@ -34,7 +43,7 @@ public class carrotBomb : MonoBehaviour
             GameObject Fx = Instantiate(groundFX, powers[i].transform.position, powers[i].transform.rotation);
             Fx.transform.SetParent(powers[i].transform);
             //Fx.transform.localScale = new Vector3(1, 1, 1);
-
+            this.audio.Play();
             Destroy(this.transform.gameObject, 1.0f);
             Destroy(Fx, 15.0f);
         }
@@ -56,7 +65,7 @@ public class carrotBomb : MonoBehaviour
     IEnumerator bomb()//바로 터짐
     {       
         GameObject Fx = Instantiate(bombFX, this.transform.position, this.transform.rotation);
-
+        this.audio.Play();
         if (!_isexpend && collisionObj.CompareTag("Player"))
             collisionObj.GetComponent<Player>().HP -= 0.2f;
         Destroy(this.transform.parent.gameObject, 0.6f);

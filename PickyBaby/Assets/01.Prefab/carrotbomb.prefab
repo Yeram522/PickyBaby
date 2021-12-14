@@ -102,6 +102,7 @@ MonoBehaviour:
   groundFX: {fileID: 1462327970484030, guid: f01c1eba69de19e44b04d8d651aaac37, type: 3}
   power: {fileID: 7909906326870522898}
   submaterial: {fileID: 2100000, guid: 73c7e5ed4cafefe4fa95ae8c68ee32b7, type: 2}
+  bombsound: {fileID: 8300000, guid: 792789b2d7f61194cb5a2b1150ced5eb, type: 3}
 --- !u!136 &5111417822531588376
 CapsuleCollider:
   m_ObjectHideFlags: 0

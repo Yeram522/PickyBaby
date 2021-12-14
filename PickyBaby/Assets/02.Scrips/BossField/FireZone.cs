@@ -11,6 +11,8 @@ public class FireZone : MonoBehaviour
     [SerializeField]
     Material[] posesmaterial = null;
     GameObject[] fire = null;
+
+    private bool isSetFire = false;
     //¿Ã∆Â∆Æ«¡∏Æ∆È
     void Start()
     {
@@ -62,12 +64,14 @@ public class FireZone : MonoBehaviour
             Destroy(this.gameObject, 5.0f);
             Destroy(fire[i].gameObject, 5.5f);
         }
+
+        isSetFire = true;
         yield return null;
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && isSetFire)
             other.GetComponent<Player>().HP -= 0.1f;
     }
 

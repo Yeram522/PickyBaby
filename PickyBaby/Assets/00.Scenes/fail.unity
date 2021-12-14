@@ -1340,7 +1340,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 0.4
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -2462,6 +2462,10 @@ MonoBehaviour:
   getitem: 0
   hasItem: 0
   isAimming: 0
+  jumpsound: {fileID: 0}
+  throwsound: {fileID: 0}
+  damagedsound: {fileID: 0}
+  getItemsound: {fileID: 0}
 --- !u!1 &5153849877305805309
 GameObject:
   m_ObjectHideFlags: 0

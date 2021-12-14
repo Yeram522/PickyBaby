@@ -5,7 +5,10 @@ using UnityEngine;
 public class stage01Manager : MonoBehaviour
 {
     public GameObject[] bombers = new GameObject[4];
+    public GameObject[] spawner = new GameObject[4];
+
     public GameObject portal;
+    public GameObject board;
     void Start()
     {
         
@@ -14,9 +17,15 @@ public class stage01Manager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (portal.activeSelf) return;
         if(isClear())
         {
             portal.SetActive(true);
+            board.GetComponent<map1UIManager>().showUIBoard2();
+            for (int i = 0; i < spawner.Length; i++)
+            {
+                spawner[i].SetActive(false);
+            }
         }
     }
 
